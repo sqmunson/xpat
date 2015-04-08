@@ -14,7 +14,7 @@
 		</section>
 		<!-- /section -->
 
-            <?php echo do_shortcode('[ajax_load_more post_type="post" max_pages="0" scroll="true" pause="false"]'); ?>
+            <?php echo do_shortcode('[ajax_load_more post_type="post" scroll_distance="0"]'); ?>
         
 	</main>
 
