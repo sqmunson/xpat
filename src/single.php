@@ -2,7 +2,7 @@
 
 	<main role="main">
 	<!-- section -->
-	<section>
+	<section id="content">
 
 	<?php if (have_posts()): while (have_posts()) : the_post(); ?>
 
@@ -49,6 +49,8 @@
 		<!-- /article -->
 
 	<?php endwhile; ?>
+
+	<?php echo do_shortcode('[ajax_load_more post_type="post" max_pages="0" scroll=true pause=false]'); ?>
 
 	<?php else: ?>
 

@@ -184,9 +184,9 @@ input[type="search"] {
  * ---
  */
 .wrapper {
-  max-width: 1280px;
-  padding: 0 15px;
-  margin: 0 auto;
+  /*max-width: 1280px;*/
+  /*padding: 0 15px;*/
+  /*margin: 0 auto;*/
   position: relative;
 }
 
@@ -277,4 +277,60 @@ input[type="search"] {
   h3 {
     page-break-after: avoid;
   }
+}
+
+
+
+/*
+  CUSTOM STYLES
+*/
+nav ul {
+  list-style: none;
+  list-style-image: none;
+  padding: 0;
+  margin: 0;
+  float: right;
+}
+
+nav li {
+  float: left;
+}
+
+nav li a {
+  padding: 20px;
+  display: block;
+}
+
+.logo img {
+  width: 200px;
+}
+
+.logo {
+  float: left;
+  padding: 10px 10px 10px 0;
+}
+
+.menu-wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  max-width: 1150px;
+  margin: 0 auto;
+}
+
+.content {
+  width:66.66667%;
+  float: left;
+}
+
+.sidebar {
+  float: left;
+  width: 33.3333%;
+}
+
+.search-wrapper {
+  float: right;
+  margin: 17px 0 0 20px;
 }

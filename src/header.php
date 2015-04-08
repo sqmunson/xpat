@@ -31,14 +31,40 @@
 			<!-- header -->
 			<header class="header clear" role="banner">
 
+                <!-- /menu-wrapper -->
+                <div class="menu-wrapper clear">
+
 					<!-- logo -->
+                    <?php
+                        $pego_logo = get_template_directory_uri()."/images/logo.png";
+                        $pego_logo_retina = '';
+
+                        if ( function_exists( 'ot_get_option' ) ) {
+                            if (ot_get_option('meganews_logo') != '') {
+                                $pego_logo = ot_get_option('meganews_logo');
+                            }
+                            if (ot_get_option('meganews_logo_retina') != ''){
+                                $pego_logo_retina = ot_get_option('meganews_logo_retina');
+                            }
+                        }
+                    ?>
 					<div class="logo">
 						<a href="<?php echo home_url(); ?>">
 							<!-- svg logo - toddmotto.com/mastering-svg-use-for-a-retina-web-fallbacks-with-png-script -->
-							<img src="<?php echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img">
+							<!-- <img src="<?php // echo get_template_directory_uri(); ?>/img/logo.svg" alt="Logo" class="logo-img"> -->
+
+                            <!-- two logos, one for retina. style would come from meganews -->
+                            <img id="logoImage" src="<?php echo $pego_logo; ?>" alt="Logo" class="logo-img" />
+                            <!-- <img id="logoImageRetina" src="<?php // echo $pego_logo_retina; ?>" alt="Logo" class="logo-img" /> -->
 						</a>
 					</div>
 					<!-- /logo -->
+
+                    <!-- search -->
+                    <div class="search-wrapper">
+                        <?php get_template_part('searchform'); ?>
+                    </div>
+                    <!-- /search -->
 
 					<!-- nav -->
 					<nav class="nav" role="navigation">
@@ -46,5 +72,11 @@
 					</nav>
 					<!-- /nav -->
 
+                </div>
+                <!-- /menu-wrapper -->
+
 			</header>
 			<!-- /header -->
+
+        <!-- content-wrapper -->
+        <div class="content-wrapper clear">
