@@ -489,3 +489,32 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 
 /* CUSTOM FUNCTIONS */
 
+// this allow me to hit this:
+// http://localhost:8888/xpatnation/wp-admin/admin-ajax.php?action=scott_ajax
+
+// I should be able to pass in a page number in order to "paginate" the calls:
+// http://localhost:8888/xpatnation/wp-admin/admin-ajax.php?action=scott_ajax&page=3
+
+// I should be able to cache these calls with W3 Total Cache
+// setting the cache-control header
+
+function scott_ajax() {
+    $the_query = new WP_Query( 'category_name=culture' );
+    // The Loop
+    if ( $the_query->have_posts() ) {
+        $path = dirname(__FILE__) . '/more_content.php';
+        while ( $the_query->have_posts() ) {
+            $the_query->the_post();
+            include ( $path );
+        }
+    } else {
+        // no posts found
+    }
+    /* Restore original Post Data */
+    wp_reset_postdata();
+    exit;
+}
+
+add_action( 'wp_ajax_nopriv_scott_ajax', 'scott_ajax');
+add_action( 'wp_ajax_scott_ajax', 'scott_ajax');
+
