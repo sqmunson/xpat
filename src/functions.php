@@ -501,7 +501,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 function lazy_load_query() {
     $type = (isset($_GET['type'])) ? $_GET['type'] : '';
     $categories = (isset($_GET['categories']) && $_GET['categories'] !== '1') ? $_GET['categories'] : '';
-    $authord = (isset($_GET['author'])) ? $_GET['authord'] : '';
+    $author = (isset($_GET['author'])) ? $_GET['author'] : '';
     $tags = (isset($_GET['tags'])) ? $_GET['tags'] : '';
     $post_id = (isset($_GET['exclude'])) ? $_GET['exclude'] : '';
     $search_term = (isset($_GET['search'])) ? $_GET['search'] : '';
@@ -573,6 +573,11 @@ function lazy_load_query() {
     if ($post_id) {
         $featured_post_args['post__not_in'] = array($post_id);
         $regular_post_args['post__not_in'] = array($post_id);
+    }
+
+    if ($author) {
+        $featured_post_args['author'] = $author;
+        $regular_post_args['author'] = $author;
     }
 
     $the_query = new WP_Query( $featured_post_args );
