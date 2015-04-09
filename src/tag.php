@@ -10,6 +10,9 @@
 
 			<?php get_template_part('pagination'); ?>
 
+            <?php echo do_shortcode('[lazy_load]'); ?>
+
+
 		</section>
 		<!-- /section -->
 	</main>

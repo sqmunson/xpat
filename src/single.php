@@ -50,7 +50,9 @@
 
 	<?php endwhile; ?>
 
-	<?php echo do_shortcode('[ajax_load_more post_type="post" max_pages="0" scroll=true pause=false]'); ?>
+	<?php //echo do_shortcode('[ajax_load_more post_type="post" max_pages="0" scroll=true pause=false]'); ?>
+    <?php echo do_shortcode('[lazy_load]'); ?>
+
 
 	<?php else: ?>
 
