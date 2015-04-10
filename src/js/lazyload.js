@@ -6,7 +6,7 @@
       //Set variables
       var alm = this;
       alm.AjaxLoadMore = {};
-      alm.page = 0;
+      alm.page = 1;
       alm.speed = 300;
       alm.proceed = false;
       alm.disable_ajax = false;

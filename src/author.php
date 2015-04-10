@@ -51,7 +51,7 @@
 
 				<br class="clear">
 
-				<?php edit_post_link(); ?>
+				<?php // edit_post_link(); ?>
 
 			</article>
 			<!-- /article -->
@@ -70,7 +70,7 @@
 
 		<?php endif; ?>
 
-			<?php get_template_part('pagination'); ?>
+			<?php //get_template_part('pagination'); ?>
 
             
             <?php echo do_shortcode('[lazy_load]'); ?>

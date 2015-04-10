@@ -36,7 +36,7 @@
 
 		<?php endif; ?>
 
-        <?php echo do_shortcode('[lazy_load]'); ?>
+        <?php // echo do_shortcode('[lazy_load]'); ?>
 
 
 		</section>
