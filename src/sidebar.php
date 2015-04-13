@@ -1,5 +1,12 @@
 <!-- sidebar -->
 <aside class="sidebar" role="complementary">
+    <!-- search -->
+    <div class="search-wrapper">
+        <?php get_template_part('searchform'); ?>
+    </div>
+    <!-- /search -->
+    <div class="fb-share"></div>
+    <div class="twitter-share"></div>
 
 	<?php // get_template_part('searchform'); ?>
 
