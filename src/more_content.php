@@ -1,11 +1,17 @@
+<?php
+  $featured = has_term( 'featured', 'post_tag');
+?>
 <!-- article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
   <!-- post thumbnail -->
   <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
+  <div class="<?php echo $featured ? 'featured-img' : 'regular-img'; ?>">
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-      <?php the_post_thumbnail(array(120,120)); // Declare pixel size you need inside the array ?>
+      <!-- <div style="background-image: url('<?php //echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>');"></div> -->
+      <?php the_post_thumbnail(); // Declare pixel size you need inside the array ?>
     </a>
+  </div>
   <?php endif; ?>
   <!-- /post thumbnail -->
 
@@ -22,9 +28,9 @@
         <?php
     }
     the_category(', ');
-    var_dump($featured_post_args);
-    var_dump($regular_post_args);
-    var_dump($categories);
+    // var_dump($featured_post_args);
+    // var_dump($regular_post_args);
+    // var_dump($categories);
    ?>
 
   <!-- post details -->

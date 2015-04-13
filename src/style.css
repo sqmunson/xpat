@@ -334,3 +334,14 @@ nav li a {
   float: right;
   margin: 17px 0 0 20px;
 }
+
+.featured-img {
+  max-height: 350px;
+  overflow: hidden;
+}
+.featured-img img {
+  width: 100%;
+}
+.regular-img {
+  max-width: 300px;
+}

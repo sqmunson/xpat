@@ -6,7 +6,6 @@
       //Set variables
       var alm = this;
       alm.AjaxLoadMore = {};
-      alm.page = 1;
       alm.speed = 300;
       alm.proceed = false;
       alm.disable_ajax = false;
@@ -19,6 +18,8 @@
       alm.el = el;
       alm.content = $(alm.el);
       alm.container = $('.lazy-load-content');
+      alm.type = alm.content.attr('data-type');
+      alm.page = ['single'].indexOf(alm.type) > -1 ? 0 : 1;
 
       /* Append 'load More' button to .ajax-load-more-wrap */
       // alm.el.append('<div class="ll-btn-wrap"><button id="load-more" class="ll-load-more-btn"></button></div>');

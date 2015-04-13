@@ -502,10 +502,10 @@ function lazy_load_query($loop) {
 
     if (!$loop) {
         // if we're not in a loop then we're loading via ajax, so get the query params
-        $categories = (isset($_GET['categories']) && $_GET['categories'] !== '1') ? explode(',',$_GET['categories']) : '';
+        $categories = (isset($_GET['categories']) && $_GET['categories'] !== '' && $_GET['categories'] !== '1') ? explode(',',$_GET['categories']) : '';
         // $categories = $categories ? explode(',', $categories) : '';
         $author = (isset($_GET['author'])) ? $_GET['author'] : '';
-        $tags = (isset($_GET['tags'])) ? explode(',',$_GET['tags']) : '';
+        $tags = (isset($_GET['tags']) && $_GET['tags'] !== '') ? explode(',',$_GET['tags']) : '';
         // $tags = $tags ? implode(',', $tags) : '';
         $post_id = (isset($_GET['exclude'])) ? $_GET['exclude'] : '';
         $search_term = (isset($_GET['search'])) ? $_GET['search'] : '';
@@ -597,21 +597,21 @@ function lazy_load_query($loop) {
         $featured_post_args['tax_query'][] = array(
             array(
                 'taxonomy' => 'post_tag',
-                'field'    => 'term_id',
+                'field'    => 'slug',
                 'terms'    => $tags,
             ),
         );
 
         $regular_post_args['tax_query'][] = array(
             'taxonomy' => 'post_tag',
-            'field'    => 'term_id',
+            'field'    => 'slug',
             'terms'    => $tags,
         );
     }
 
     if ($categories && $tags) {
 
-        $featured_post_args['tax_query'] = array(
+        $featured_post_args['tax_query'][] = array(
             'relation' => 'OR',
             array(
                 'taxonomy' => 'category',
@@ -620,12 +620,12 @@ function lazy_load_query($loop) {
             ),
             array(
                 'taxonomy' => 'post_tag',
-                'field'    => 'term_id',
+                'field'    => 'slug',
                 'terms'    => $tags,
             ),
         );
 
-        $regular_post_args['tax_query'] = array(
+        $regular_post_args['tax_query'][] = array(
             'relation' => 'OR',
             array(
                 'taxonomy' => 'category',
@@ -634,15 +634,15 @@ function lazy_load_query($loop) {
             ),
             array(
                 'taxonomy' => 'post_tag',
-                'field'    => 'term_id',
+                'field'    => 'slug',
                 'terms'    => $tags,
             ),
         );
     }
 
     if ($search_term) {
-        $featured_post_args['s'] = array($search_term);
-        $regular_post_args['s'] = array($search_term);
+        $featured_post_args['s'] = $search_term;
+        $regular_post_args['s'] = $search_term;
     }
 
     if ($post_id) {
@@ -709,7 +709,7 @@ function lazy_load_shortcode($atts, $content = null) {
         $post_id = $_post->ID;
         $categories = wp_get_post_categories($post_id);
         $categories = implode(',', $categories);
-        $tags = wp_get_post_tags($post_id, array('fields' => 'ids'));
+        $tags = wp_get_post_tags($post_id, array('fields' => 'slugs'));
         $tags = implode(',', $tags);
     }
     if (is_category()) {
