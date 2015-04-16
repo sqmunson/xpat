@@ -503,3 +503,53 @@ function xpat_img_sizes() {
 // }
 // add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
     
+
+// first method of filtering out certain tags in the single.php page
+// this function is called INSTEAD of the_tags()
+function pk_the_tags( $before = 'Tags: ', $sep = ', ', $after = '', $exclude = '') {
+    $tags = get_the_tags();
+
+    if (empty($tags)) { return false; }
+
+    $tag_list = $before;
+       
+    foreach ( $tags as $tag ) {
+        if (!empty($exclude)) {
+            $pos = stripos( $exclude, $tag->name);
+        } else {
+            $pos = false;
+        }
+
+        if ($pos === false) {
+            $tag_links[] = '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>';  
+        }
+    }
+
+    if (empty($tag_links)) {
+       return false;
+    }
+
+    $tag_links = join( $sep, $tag_links );
+    $tag_links = apply_filters( 'the_tags', $tag_links );
+    $tag_list .= $tag_links;
+
+    $tag_list .= $after;
+
+    echo $tag_list;
+}
+
+// second way to filter out certain tags on single.php
+// this actually filters out the tags returned from the_tag()
+function exclude_tags($tags) {
+    foreach ($tags as $tag) {
+        switch ($tag->name) {
+            case 'featured':
+            case 'evergreen':
+                break;
+            default:
+                $newtags[] = $tag;
+        }
+    }
+    return $newtags;
+}
+add_filter( 'get_the_tags', 'exclude_tags');
