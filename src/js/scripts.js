@@ -32,6 +32,30 @@
                 }
             }
         });
+
+        $('.show-children').click(function() {
+            $(this).nextAll('ul.sub-menu').slideToggle();
+            $(this).toggleClass('active');
+        });
+
+        $('.wrapper').click(function(e) {
+            console.log('yup', e);
+            if ($(this).hasClass('show-menu')) {
+                console.log('menu!');
+                e.preventDefault();
+                $('.mobile-nav').hide();
+                $('.wrapper').removeClass('show-menu');
+            }
+        });
+
+        $('.hamburger').click(function(e) {
+            console.log('hamburger');
+            e.stopPropagation();
+            $('.mobile-nav').toggle();
+            $('.wrapper').toggleClass('show-menu');
+        });
+
+        
 	});
 
 } ( this, jQuery ));

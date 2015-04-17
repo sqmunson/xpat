@@ -29,6 +29,8 @@
 	</head>
 	<body <?php body_class(); ?>>
 
+        <div class="mobile-nav"><?php mobile_nav(); ?></div>
+        
 		<!-- wrapper -->
 		<div class="wrapper">
 
@@ -71,10 +73,11 @@
                     <!-- /search -->
 
 					<!-- nav -->
-					<nav class="nav" role="navigation">
-						<?php html5blank_nav(); ?>
+					<nav class="nav desktop navigation" role="navigation">
+                        <?php html5blank_nav(); ?>
 					</nav>
 					<!-- /nav -->
+                    <div class="hamburger"></div>
 
                 </div>
                 <!-- /menu-wrapper -->

@@ -79,7 +79,7 @@ function html5blank_nav()
         'before'          => '',
         'after'           => '',
         'link_before'     => '',
-        'link_after'      => '',
+        'link_after'      => '<span class="indicate-children"></span>',
         'items_wrap'      => '<ul>%3$s</ul>',
         'depth'           => 0,
         'walker'          => ''
@@ -553,3 +553,55 @@ function exclude_tags($tags) {
     return $newtags;
 }
 add_filter( 'get_the_tags', 'exclude_tags');
+
+
+// mobile nav
+function mobile_nav()
+{
+    wp_nav_menu(
+    array(
+        'theme_location'  => 'header-menu',
+        'menu'            => '',
+        'container'       => 'div',
+        'container_class' => 'menu-{menu slug}-container',
+        'container_id'    => '',
+        'menu_class'      => 'menu',
+        'menu_id'         => '',
+        'echo'            => true,
+        'fallback_cb'     => 'wp_page_menu',
+        'before'          => '',
+        'after'           => '<span class="show-children"></span>',
+        'link_before'     => '',
+        'link_after'      => '',
+        'items_wrap'      => '<ul>%3$s</ul>',
+        'depth'           => 0,
+        'walker'          => ''
+        )
+    );
+}
+
+// remove orphaned shortcodes
+add_filter('the_content', 'remove_orphan_shortcodes', 0);
+
+function remove_orphan_shortcodes($content) {
+    global $shortcode_tags;
+    
+    //Check for active shortcodes
+    $active_shortcodes = ( is_array($shortcode_tags) && !empty($shortcode_tags) ) ? array_keys($shortcode_tags) : array();
+    
+    $hack = md5(microtime());
+    $content = str_replace("/",$hack, $content); //avoid "/" chars in content breaks preg_replace
+    
+    if(!empty($active_shortcodes)){
+        //Be sure to keep active shortcodes
+        $keep_active = implode("|", $active_shortcodes);
+        $content= preg_replace( "~(?:\[/?)(?!(?:$keep_active))[^/\]]+/?\]~s", '', $content );
+    } else {
+        //Strip all shortcodes
+        $content = preg_replace("~(?:\[/?)[^/\]]+/?\]~s", '', $content);            
+    }
+    
+    $content = str_replace($hack,"/",$content); // set "/" back to its place
+        
+    return $content;
+}
