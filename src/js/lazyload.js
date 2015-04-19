@@ -86,6 +86,9 @@
                 alm.loading = false;
                 alm.button.delay(alm.speed).removeClass('loading');
              });
+
+            // load ads!
+            window.loadAds();
                 
             // ALM Complete 
             if ($.isFunction($.fn.almComplete)) {

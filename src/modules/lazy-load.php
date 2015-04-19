@@ -184,6 +184,8 @@ function lazy_load_query($loop) {
             $the_query->the_post();
             include ( $path );
         }
+        echo do_shortcode('[ad type="desktop" size="728x90"]');
+        echo do_shortcode('[ad type="mobile" size="300x250"]');
     }
     wp_reset_postdata(); /* Restore original Post Data */
 

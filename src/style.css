@@ -578,7 +578,7 @@ span.show-children:before {
 }
 
 .menu-wrapper {
-  max-width: 1070px;
+  max-width: 1120px;
   margin: 0 auto;
   background-color: #ffffff;
   position: relative;
@@ -591,7 +591,7 @@ span.show-children:before {
 }
 
 .content-wrapper {
-  max-width: 1050px;
+  max-width: 1100px;
   margin: 0 auto;
   margin-top: 82px;
 }
@@ -599,7 +599,7 @@ span.show-children:before {
 .content {
   width:66.66667%;
   float: left;
-  max-width: 711px;
+  max-width: 728px;
 }
 
 .sidebar {
@@ -689,9 +689,37 @@ article.list {
 .fb-like {
   padding-bottom: 10px;
 }
-body.home .shares {
+.fb-share, .twitter-share {
   display: none;
 }
+body.single .fb-share, body.single .twitter-share {
+  display: block;
+}
+body.single .fb-checkout, body.single .twitter-checkout {
+  display: none;
+}
+nav .shares {
+  display: none;
+  padding-top: 22px;
+  float: right;
+  padding-right: 5px;
+}
+nav .share {
+  display: inline-block !important;
+  width: 38px;
+  line-height: .2;
+  margin: 0;
+  padding: 0;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+nav i {
+  margin: 0 !important;
+  padding: 8px !important;
+  font-size: 1.4em !important;
+}
+
 .share {
   /*text-align: center;*/
 }
@@ -709,13 +737,13 @@ body.home .shares {
   padding: 9px 5px 0 10px;
 }
 
-.fb-share {
+.fb-share, .fb-checkout {
   background: #3b5998;
   width:100%;
   margin-bottom: 10px;
 }
 
-.twitter-share {
+.twitter-share, .twitter-checkout {
   background: #00aced;
   width:100%;
   margin-bottom: 10px;
@@ -759,7 +787,9 @@ span.featured-heading {
   border-top: 1px dotted #cccccc;
   margin: 20px 0;
 }
-
+.sticky-featured {
+  margin-bottom: 30px;
+}
 .sticky-featured.stick {
   position: fixed;
   top: 105px;
@@ -773,6 +803,16 @@ span.featured-heading {
 .sticky-ad.stick {
   position: fixed;
   bottom: 20px;
+}
+
+.content .ad {
+  text-align: center;
+  margin-bottom: 20px;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 20px;
+  background-color: #eee;
+  padding-top: 20px;
+  margin-top: -21px;
 }
 
 .ad-300x250 {
@@ -790,6 +830,9 @@ span.featured-heading {
 @media (max-width: 1085px) {
   .logo {
     padding: 20px 10px 20px 20px;
+  }
+  .nav .shares {
+    padding-right: 15px;
   }
 }
 
@@ -841,5 +884,8 @@ span.featured-heading {
   }
   .info-container p {
     margin: 1em 0;
+  }
+  .desktop-728x90, .desktop-300x600, .desktop-300x250 {
+    display: none;
   }
 }

@@ -13,7 +13,19 @@
         <div class="twitter-share share">
             <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
               <i class="icon-2x icon-twitter-sign"></i>
-              <span>SHARE</span>
+              <span>TWEET</span>
+            </a>
+        </div>
+        <div class="fb-checkout share">
+            <a href="http://facebook.com/xpatnation" target="_blank" class="btn">
+              <i class="icon-2x icon-facebook-sign"></i>
+              <span>CHECK US OUT</span>
+            </a>
+        </div>
+        <div class="twitter-checkout share">
+            <a href="https://twitter.com/xpatnation" target="_blank" class="btn">
+              <i class="icon-2x icon-twitter-sign"></i>
+              <span>FOLLOW US</span>
             </a>
         </div>
     </div>
@@ -49,7 +61,12 @@
         wp_reset_postdata(); /* Restore original Post Data */
     ?>
 
-    <div class="ad-300x600"></div>
+    <div>
+        <?php 
+            // dektop 300x600 ad
+            echo do_shortcode('[ad type="desktop" size="300x600"]');
+        ?>
+    </div>
 
 	<div class="sidebar-widget">
 		<?php if(!function_exists('dynamic_sidebar') || !dynamic_sidebar('widget-area-1')) ?>
@@ -60,8 +77,9 @@
 	</div>
     
     <div class="sticky-featured">
-        
-        <div class="fb-like sticky-fb-like" data-href="https://www.facebook.com/xpatnation" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+        <div class="sticky-fb-like">
+            <div class="fb-like" data-href="https://www.facebook.com/xpatnation" data-width="300" data-layout="standard" data-action="like" data-show-faces="true" data-share="false"></div>
+        </div>
 
         <span class="featured-heading">FEATURED</span>
 
@@ -88,7 +106,12 @@
         ?>
     </div>
 
-    <div class="sticky-ad ad-300x250"></div>
+    <div class="sticky-ad">
+        <?php 
+            // sticky dektop 300x250 ad
+            echo do_shortcode('[ad type="desktop" size="300x250"]');
+        ?>
+    </div>
     
 
 </aside>

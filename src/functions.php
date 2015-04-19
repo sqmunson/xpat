@@ -541,6 +541,8 @@ function pk_the_tags( $before = 'Tags: ', $sep = ', ', $after = '', $exclude = '
 // second way to filter out certain tags on single.php
 // this actually filters out the tags returned from the_tag()
 function exclude_tags($tags) {
+    if (!$tags) { return $tags; }
+
     foreach ($tags as $tag) {
         switch ($tag->name) {
             case 'featured':
@@ -605,3 +607,22 @@ function remove_orphan_shortcodes($content) {
         
     return $content;
 }
+
+// ads: postscribe + jQuery
+function child_javascripts() {
+    wp_enqueue_script('htmlParser', get_stylesheet_directory_uri() . '/js/htmlParser.js','','',true);
+    wp_enqueue_script('postscribe', get_stylesheet_directory_uri() . '/js/postscribe.js','','',true);
+    wp_enqueue_script('ads', get_stylesheet_directory_uri() . '/js/ads.js',array('jquery','htmlParser','postscribe'),'',true);
+}
+add_action('wp_enqueue_scripts', 'child_javascripts');
+
+function ad_shortcode($atts, $content = null) {
+    if (!$atts['type'] || !$atts['size']) { return ''; }
+
+    $html = '<div class="ad ';
+    $html .= $atts['type'] . '-' . $atts['size'];
+    $html .= '" ></div>';
+
+    return $html;
+}
+add_shortcode( 'ad', 'ad_shortcode');

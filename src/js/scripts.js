@@ -8,15 +8,26 @@
             stickyFeatured = $('.sticky-featured'),
             stickyFB = $('.sticky-fb-like'),
             stickyAd = $('.sticky-ad'),
-            menuWrapper = $('.menu-wrapper');
+            menuWrapper = $('.menu-wrapper'),
+            navDesktop = $('nav.desktop ul'),
+            navShares = $('nav .shares'),
+            isSingle = $('body').hasClass('single');
 
         $(window).bind('scroll touchstart', function() {
             var scrollTop = $(window).scrollTop();
 
             if (scrollTop > 50) {
                 menuWrapper.addClass('menu-shadow');
+                if (isSingle) {
+                    navDesktop.slideUp();
+                    navShares.slideDown();
+                }
             } else {
                 menuWrapper.removeClass('menu-shadow');
+                if (isSingle) {
+                    navDesktop.slideDown();
+                    navShares.slideUp();
+                }
             }
 
             if (stickyFeatured.is(':visible')) {

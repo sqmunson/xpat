@@ -75,6 +75,19 @@
 					<!-- nav -->
 					<nav class="nav desktop navigation" role="navigation">
                         <?php html5blank_nav(); ?>
+
+                        <div class="shares">
+                            <div class="fb-share share">
+                                <a href="javascript:fb_share()" class="btn">
+                                  <i class="icon-2x icon-facebook-sign"></i>
+                                </a>
+                            </div>
+                            <div class="twitter-share share">
+                                <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
+                                  <i class="icon-2x icon-twitter-sign"></i>
+                                </a>
+                            </div>
+                        </div>
 					</nav>
 					<!-- /nav -->
                     <div class="hamburger"></div>
