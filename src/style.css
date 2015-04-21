@@ -800,7 +800,13 @@ header .share i {
 }
 
 .share i {
-  padding: 9px 5px 0 10px;
+  /*padding: 9px 5px 0 10px;*/
+}
+
+.st-icon-facebook:before,
+.st-icon-twitter:before,
+.st-icon-email:before {
+  color: #ffffff !important;
 }
 
 .share a {

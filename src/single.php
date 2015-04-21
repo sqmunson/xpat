@@ -35,13 +35,13 @@
 			<div class="shares clear mobile">
                 <div class="fb-share share">
                     <a href="javascript:fb_share()" class="btn">
-                    	<i class="icon-2x icon-facebook-sign"></i>
+                    	<i class="st-icon-facebook"></i>
           				<span>SHARE</span>
                     </a>
                 </div>
                 <div class="twitter-share share">
                     <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
-                    	<i class="icon-2x icon-twitter-sign"></i>
+                    	<i class="st-icon-twitter"></i>
               			<span>TWEET</span>
                     </a>
                 </div>
@@ -52,13 +52,13 @@
 			<div class="shares clear">
                 <div class="fb-share share">
                     <a href="javascript:fb_share()" class="btn">
-                    	<i class="icon-2x icon-facebook-sign"></i>
+                    	<i class="st-icon-facebook"></i>
           				<span>SHARE</span>
                     </a>
                 </div>
                 <div class="twitter-share share">
                     <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
-                    	<i class="icon-2x icon-twitter-sign"></i>
+                    	<i class="st-icon-twitter"></i>
               			<span>TWEET</span>
                     </a>
                 </div>

@@ -25,7 +25,7 @@
         <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Halant:300,400,500,600,700|Mate:400,400italic|Roboto:400,100,300,300italic,100italic,400italic,500,500italic,700,700italic,900,900italic|Quattrocento+Sans:400,400italic,700,700italic|Source+Serif+Pro:400,600,700|Khula:400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/css/socialicious.css">
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/stackicons/css/stackicons-min.css">
 	</head>
 	<body <?php body_class(); ?>>
 
@@ -77,12 +77,12 @@
                         <div class="shares">
                             <div class="fb-share share">
                                 <a href="javascript:fb_share()" class="btn">
-                                  <i class="icon-2x icon-facebook-sign"></i>
+                                  <i class="st-icon-facebook"></i>
                                 </a>
                             </div>
                             <div class="twitter-share share">
                                 <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
-                                  <i class="icon-2x icon-twitter-sign"></i>
+                                  <i class="st-icon-twitter"></i>
                                 </a>
                             </div>
                         </div>
@@ -94,12 +94,12 @@
                         <div class="shares">
                             <div class="fb-share share">
                                 <a href="javascript:fb_share()" class="btn">
-                                  <i class="icon-2x icon-facebook-sign"></i>
+                                  <i class="st-icon-facebook"></i>
                                 </a>
                             </div>
                             <div class="twitter-share share">
                                 <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
-                                  <i class="icon-2x icon-twitter-sign"></i>
+                                  <i class="st-icon-twitter"></i>
                                 </a>
                             </div>
                         </div>

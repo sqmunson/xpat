@@ -6,25 +6,25 @@
     <div class="shares">
         <div class="fb-share share">
             <a href="javascript:fb_share()" class="btn">
-              <i class="icon-2x icon-facebook-sign"></i>
+              <i class="st-icon-facebook"></i>
               <span>SHARE</span>
             </a>
         </div>
         <div class="twitter-share share">
             <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
-              <i class="icon-2x icon-twitter-sign"></i>
+              <i class="st-icon-twitter"></i>
               <span>TWEET</span>
             </a>
         </div>
         <div class="fb-checkout share">
             <a href="http://facebook.com/xpatnation" target="_blank" class="btn">
-              <i class="icon-2x icon-facebook-sign"></i>
+              <i class="st-icon-facebook"></i>
               <span>CHECK US OUT</span>
             </a>
         </div>
         <div class="twitter-checkout share">
             <a href="https://twitter.com/xpatnation" target="_blank" class="btn">
-              <i class="icon-2x icon-twitter-sign"></i>
+              <i class="st-icon-twitter"></i>
               <span>FOLLOW US</span>
             </a>
         </div>
