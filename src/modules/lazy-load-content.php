@@ -39,7 +39,7 @@
     <?php html5wp_excerpt('html5wp_index'); // Build your custom callback length in functions.php ?>
 
     <!-- post details -->
-    <span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?> | </span>
+    <span class="author"><?php _e( 'By', 'html5blank' ); ?> <?php the_author_posts_link(); ?> | </span>
     <span class="date">
       <time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
         <?php the_date(); ?> <?php the_time(); ?>

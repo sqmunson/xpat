@@ -11,7 +11,10 @@
             menuWrapper = $('.menu-wrapper'),
             navDesktop = $('nav.desktop ul'),
             navShares = $('nav .shares'),
-            isSingle = $('body').hasClass('single');
+            mobileShares = $('.hamburger-holder .shares'),
+            isSingle = $('body').hasClass('single'),
+            mainPost = isSingle ? $('.main-post') : null,
+            mainPostRect = mainPost ? mainPost[0].getBoundingClientRect() : null;
 
         $(window).bind('scroll touchstart', function() {
             var scrollTop = $(window).scrollTop();
@@ -19,14 +22,21 @@
             if (scrollTop > 50) {
                 menuWrapper.addClass('menu-shadow');
                 if (isSingle) {
-                    navDesktop.slideUp();
-                    navShares.slideDown();
+                    if (scrollTop > mainPostRect.bottom) {
+                        navShares.slideUp();
+                        mobileShares.slideUp();
+                    } else {
+                        navShares.slideDown();
+                        mobileShares.slideDown();
+                    }
+                    
                 }
             } else {
                 menuWrapper.removeClass('menu-shadow');
                 if (isSingle) {
-                    navDesktop.slideDown();
+                    // navDesktop.slideDown();
                     navShares.slideUp();
+                    mobileShares.slideUp();
                 }
             }
 
@@ -50,9 +60,7 @@
         });
 
         $('.wrapper').click(function(e) {
-            console.log('yup', e);
             if ($(this).hasClass('show-menu')) {
-                console.log('menu!');
                 e.preventDefault();
                 $('.mobile-nav').hide();
                 $('.wrapper').removeClass('show-menu');
@@ -60,7 +68,6 @@
         });
 
         $('.hamburger').click(function(e) {
-            console.log('hamburger');
             e.stopPropagation();
             $('.mobile-nav').toggle();
             $('.wrapper').toggleClass('show-menu');

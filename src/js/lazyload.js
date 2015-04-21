@@ -82,6 +82,12 @@
             alm.el.append(alm.data).hide();
             alm.container.append(alm.el);
 
+            // this is part of loading posts when half way down the page
+            // alm.loading = false;
+
+            // this shows the posts as soon as they're loaded, i want to separate this
+            // so that we can load posts earlier and show them when we're ready
+            // the problem is that ads don't load when posts are hidden! ugh
             alm.el.fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
                 alm.loading = false;
                 alm.button.delay(alm.speed).removeClass('loading');
@@ -123,7 +129,19 @@
        *  @since 1.0
        */
        alm.window.bind("scroll touchstart", function () {
+          // var content_offset = alm.button.offset();
+          // if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - (alm.window.height() * 1.5))) && alm.proceed) {                  
+          //   // this loads more posts when we get half way down the page
+          //   alm.el.fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
+          //     alm.button.delay(alm.speed).removeClass('loading');
+          //   });
+          //   alm.page++;
+          //   alm.AjaxLoadMore.loadPosts();
+          // }
+
+
           if (alm.AjaxLoadMore.isVisible()) {
+            // this loads more posts when we get to the bottom of the page
              var content_offset = alm.button.offset();
              if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - alm.window.height())) && alm.proceed) {                  
                 alm.page++;

@@ -37,31 +37,37 @@
     <!-- /search -->
 
 	<?php // get_template_part('searchform'); ?>
+    
+    <div class="evergreens">
+        <?php 
+            $evergreen_query = new WP_Query( array(
+                'post_type' => 'post',
+                'posts_per_page' => 2,
+                'post_status' => 'publish',
+                'tag' => 'evergreen',
+            ));
+            if ( $evergreen_query->have_posts() ) {
+                while ( $evergreen_query->have_posts() ) {
+                    $evergreen_query->the_post();
+                    ?>
+                        
+                        <div class="evergreen">
+                            <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" />
+                            <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
+                        </div>
 
-    <?php 
-        $evergreen_query = new WP_Query( array(
-            'post_type' => 'post',
-            'posts_per_page' => 2,
-            'post_status' => 'publish',
-            'tag' => 'evergreen',
-        ));
-        if ( $evergreen_query->have_posts() ) {
-            while ( $evergreen_query->have_posts() ) {
-                $evergreen_query->the_post();
-                ?>
-                    
-                    <div class="evergreen">
-                        <img src="<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>" />
-                        <h2><a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a></h2>
-                    </div>
-
-                <?php
+                    <?php
+                }
             }
-        }
-        wp_reset_postdata(); /* Restore original Post Data */
-    ?>
+            wp_reset_postdata(); /* Restore original Post Data */
+        ?>
+    </div>
 
     <div>
+        <!-- <div class="clear ad desktop-300x600">
+            <script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600"></script>
+            <div class="space"></div>
+        </div> -->
         <?php 
             // dektop 300x600 ad
             echo do_shortcode('[ad type="desktop" size="300x600"]');

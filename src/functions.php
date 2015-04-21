@@ -291,7 +291,7 @@ function html5wp_excerpt($length_callback = '', $more_callback = '')
 function html5_blank_view_article($more)
 {
     global $post;
-    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('View Article', 'html5blank') . '</a>';
+    return '... <a class="view-article" href="' . get_permalink($post->ID) . '">' . __('more', 'html5blank') . '</a>';
 }
 
 // Remove Admin bar
@@ -619,7 +619,7 @@ add_action('wp_enqueue_scripts', 'child_javascripts');
 function ad_shortcode($atts, $content = null) {
     if (!$atts['type'] || !$atts['size']) { return ''; }
 
-    $html = '<div class="ad ';
+    $html = '<div class="clear ad ';
     $html .= $atts['type'] . '-' . $atts['size'];
     $html .= '" ></div>';
 
