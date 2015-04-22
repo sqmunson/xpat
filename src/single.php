@@ -21,7 +21,7 @@
 			<!-- /post thumbnail -->
 
 			<!-- post details -->
-			<div class="details">
+			<div class="details clear">
 				<span class="author"><?php _e( 'Published by', 'html5blank' ); ?> <?php the_author_posts_link(); ?></span>
 				<span class="date">
 					<time datetime="<?php the_time('Y-m-d'); ?> <?php the_time('H:i'); ?>">
@@ -45,6 +45,12 @@
               			<span>TWEET</span>
                     </a>
                 </div>
+                <div class="email-share share">
+	                <a href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo the_permalink(); ?>" target="_blank" class="btn">
+	                  <i class="st-icon-email"></i>
+	                  <span>EMAIL</span>
+	                </a>
+	            </div>
             </div>
 
 			<?php the_content(); // Dynamic Content ?>
@@ -62,6 +68,12 @@
               			<span>TWEET</span>
                     </a>
                 </div>
+                <div class="email-share share">
+	                <a href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo the_permalink(); ?>" target="_blank" class="btn">
+	                  <i class="st-icon-email"></i>
+	                  <span>EMAIL</span>
+	                </a>
+	            </div>
             </div>
 			
 			<div class="author-details">

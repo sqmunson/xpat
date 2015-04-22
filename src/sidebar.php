@@ -16,6 +16,12 @@
               <span>TWEET</span>
             </a>
         </div>
+        <div class="email-share share">
+            <a href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo the_permalink(); ?>" target="_blank" class="btn">
+              <i class="st-icon-email"></i>
+              <span>EMAIL</span>
+            </a>
+        </div>
         <div class="fb-checkout share">
             <a href="http://facebook.com/xpatnation" target="_blank" class="btn">
               <i class="st-icon-facebook"></i>

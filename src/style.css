@@ -457,12 +457,12 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 75%;
+  width: 80%;
   height: 100%;
   background-color: #ffffff;
   z-index: 2;
     overflow-y: scroll;
-  max-width: 300px;
+  max-width: 240px;
 }
 
 .mobile-nav ul {
@@ -470,6 +470,7 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   padding: 0;
   margin: 0;
   list-style-image: none;
+  text-transform: uppercase;
 }
 
 .mobile-nav ul.sub-menu {
@@ -553,15 +554,15 @@ span.show-children:before {
   width: 100%;
 }
 .wrapper.show-menu .menu-wrapper {
-  padding-left: 300px;
+  padding-left: 240px;
 }
 
 .wrapper.show-menu .content-wrapper {
-    -webkit-transform: translateX(300px);
-  -moz-transform: translateX(300px);
-  -ms-transform: translateX(300px);
-  -o-transform: translateX(300px);
-  transform: translateX(300px);
+    -webkit-transform: translateX(240px);
+  -moz-transform: translateX(240px);
+  -ms-transform: translateX(240px);
+  -o-transform: translateX(240px);
+  transform: translateX(240px);
 }
 
 .header {
@@ -716,15 +717,10 @@ article.main-post .shares {
   margin: 20px 0;
   padding: 20px 0;
 }
-article.main-post .fb-share, article.main-post .twitter-share {
+article.main-post .fb-share, article.main-post .twitter-share, article.main-post .email-share {
   display: inline-block;
-  width: 49%;
+  width: 33.333%;
   margin-bottom: 0;
-}
-article.main-post .twitter-share {
-  float: right;
-}
-article.main-post .fb-share {
   float: left;
 }
 article.main-post span.author,
@@ -733,16 +729,18 @@ article.main-post span.categories,
 article.main-post span.tags {
   display: inline-block;
 }
+
 nav > ul {
   float: right;
 }
 .nav .shares {
   display: none;
   float: right;
-  padding-top: 22px;
+  padding-top: 17px;
   padding-right: 5px;
   position: relative;
   right: 0;
+  /*right: -200px;*/
   padding-left: 20px;
 }
 .hamburger-holder {
@@ -755,28 +753,35 @@ nav > ul {
   float: right;
   position: relative;
   right: 0;
+  padding-bottom: 18px;
 }
 header .share {
   display: inline-block !important;
-  width: 38px;
-  line-height: .2;
+  /*width: 38px;*/
+  /*line-height: .2;*/
   margin: 0;
   padding: 0;
-  border-radius: 5px;
+  /*border-radius: 5px;*/
   margin-right: 5px;
 }
 
 header .share i {
-  margin: 0 !important;
+  font-size: 1.4em;
+  line-height: 1.3em;
+  margin: 7px;
+  padding: 0;
+
+  /*margin: 0 !important;
   padding: 8px !important;
-  font-size: 1.4em !important;
+  font-size: 1.4em !important;*/
 }
 
 .hamburger {
   float:right;
   position: relative;
-  top: 28px;
-  right: -4px;
+  /*top: 28px;
+  right: -4px;*/
+  margin: 28px 0 0 15px;
 }
 
 /*.shares .hamburger {
@@ -794,12 +799,14 @@ header .share i {
   font-size: 1.4em;
   color: #ffffff;
   position: relative;
-  top: -7px;
+  top: 8px;
   font-weight: 600;
-  letter-spacing: .04em;
 }
 
-.share i {
+.content-wrapper .share i {
+  line-height: 1.2em;
+  font-size: 1.8em;
+  margin: 6px 3px 6px 6px;
   /*padding: 9px 5px 0 10px;*/
 }
 
@@ -808,21 +815,31 @@ header .share i {
 .st-icon-email:before {
   color: #ffffff !important;
 }
-
+article.main-post .shares {
+  margin: 20px -5px;
+}
 .share a {
   display: block;
 }
-
-.fb-share, .fb-checkout {
-  background: #3b5998;
-  width:100%;
-  margin-bottom: 10px;
+article.main-post .share a {
+  /*display: block;*/
+  margin: 5px;
 }
 
-.twitter-share, .twitter-checkout {
+aside .share {
+  margin-bottom: 8px;
+}
+
+.fb-share a, .fb-checkout a {
+  background: #3b5998;
+}
+
+.twitter-share a, .twitter-checkout a {
   background: #00aced;
-  width:100%;
-  margin-bottom: 10px;
+}
+
+.email-share a, .email-checkout a {
+  background: #bbbbbb;
 }
 
 input.search-input {
@@ -983,6 +1000,10 @@ article.main-post span.date {
   float: right;
 }
 
+article.main-post span.author {
+  float: left;
+}
+
 @media (max-width: 1135px) {
   .logo {
     padding: 20px 10px 20px 20px;
@@ -1003,6 +1024,13 @@ article.main-post span.date {
   }
   article.main-post .shares.mobile {
     display: block;
+  }
+}
+
+@media (max-width: 850px) {
+  .logo img {
+    width: 150px;
+    padding-top: 5px;
   }
 }
 
@@ -1029,6 +1057,9 @@ article.main-post span.date {
     padding-bottom: 0; 
     border-bottom: 0;
   }
+  article.main-post .shares {
+    margin: 20px 10px;
+  }
   .regular-img {
     width:100%;
     float: none;
@@ -1053,7 +1084,7 @@ article.main-post span.date {
   .mobile-300x250 {
     display:block;
   }
-  article.main-post span.date {
+  article.main-post span.date, article.main-post span.author {
     float: none;
   }
   h1 {

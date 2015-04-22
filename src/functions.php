@@ -610,6 +610,7 @@ function remove_orphan_shortcodes($content) {
 
 // ads: postscribe + jQuery
 function child_javascripts() {
+    wp_enqueue_script('jquery-ui', 'https://code.jquery.com/ui/1.11.4/jquery-ui.min.js','','',true);
     wp_enqueue_script('htmlParser', get_stylesheet_directory_uri() . '/js/htmlParser.js','','',true);
     wp_enqueue_script('postscribe', get_stylesheet_directory_uri() . '/js/postscribe.js','','',true);
     wp_enqueue_script('ads', get_stylesheet_directory_uri() . '/js/ads.js',array('jquery','htmlParser','postscribe'),'',true);

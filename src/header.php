@@ -12,6 +12,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta name="description" content="<?php bloginfo('description'); ?>">
 
+        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Halant:300,400,500,600,700|Mate:400,400italic|Roboto:400,100,300,300italic,100italic,400italic,500,500italic,700,700italic,900,900italic|Quattrocento+Sans:400,400italic,700,700italic|Source+Serif+Pro:400,600,700|Khula:400,300,600,700,800' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/stackicons/css/stackicons-min.css">
+
 		<?php wp_head(); ?>
 		<script>
         // conditionizr.com
@@ -21,13 +26,18 @@
             tests: {}
         });
         </script>
-
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:200,300,400,600,700,900,200italic,300italic,400italic,600italic,700italic,900italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,400,500,700,300italic,400italic,500italic,700italic' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Halant:300,400,500,600,700|Mate:400,400italic|Roboto:400,100,300,300italic,100italic,400italic,500,500italic,700,700italic,900,900italic|Quattrocento+Sans:400,400italic,700,700italic|Source+Serif+Pro:400,600,700|Khula:400,300,600,700,800' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/stackicons/css/stackicons-min.css">
 	</head>
 	<body <?php body_class(); ?>>
+
+        <!-- FB -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.3";
+          fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 
         <div class="mobile-nav"><?php mobile_nav(); ?></div>
         
@@ -85,6 +95,11 @@
                                   <i class="st-icon-twitter"></i>
                                 </a>
                             </div>
+                            <div class="email-share share">
+                                <a href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo the_permalink(); ?>" target="_blank" class="btn">
+                                  <i class="st-icon-email"></i>
+                                </a>
+                            </div>
                         </div>
                         <?php html5blank_nav(); ?>
 					</nav>
@@ -100,6 +115,11 @@
                             <div class="twitter-share share">
                                 <a href="https://twitter.com/share?url=<?php echo the_permalink(); ?>&text=<?php echo the_title(); ?>&via=XpatNation" target="_blank" class="btn">
                                   <i class="st-icon-twitter"></i>
+                                </a>
+                            </div>
+                            <div class="email-share share">
+                                <a href="mailto:?subject=<?php echo the_title(); ?>&body=<?php echo the_permalink(); ?>" target="_blank" class="btn">
+                                  <i class="st-icon-email"></i>
                                 </a>
                             </div>
                         </div>
