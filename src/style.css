@@ -696,10 +696,10 @@ a.feature-h2-link:hover {
 .fb-like {
   padding-bottom: 10px;
 }
-.fb-share, .twitter-share {
+.fb-share, .twitter-share, .email-share {
   display: none;
 }
-body.single .fb-share, body.single .twitter-share {
+body.single .fb-share, body.single .twitter-share, body.single .email-share {
   display: block;
 }
 body.single .fb-checkout, body.single .twitter-checkout {
