@@ -8,7 +8,7 @@
   <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
   <div class="<?php echo $featured ? 'featured-img' : 'regular-img'; ?>">
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-      <div class="img" style="background-image: url('<?php echo wp_get_attachment_url( get_post_thumbnail_id($post->ID) ); ?>');"></div>
+      <div class="img" style="background-image: url('<?php echo wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'xpat-large', false )[0]; ?>');"></div>
       <?php //the_post_thumbnail(); // Declare pixel size you need inside the array ?>
     </a>
     <?php

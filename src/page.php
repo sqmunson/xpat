@@ -1,6 +1,6 @@
 <?php get_header(); ?>
 
-	<main role="main">
+	<main role="main" class="content">
 		<!-- section -->
 		<section>
 
@@ -17,7 +17,7 @@
 
 				<br class="clear">
 
-				<?php edit_post_link(); ?>
+				<?php // edit_post_link(); ?>
 
 			</article>
 			<!-- /article -->

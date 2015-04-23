@@ -27,10 +27,11 @@ if (function_exists('add_theme_support'))
 
     // Add Thumbnail Theme Support
     add_theme_support('post-thumbnails');
-    add_image_size('large', 700, '', true); // Large Thumbnail
-    add_image_size('medium', 250, '', true); // Medium Thumbnail
-    add_image_size('small', 120, '', true); // Small Thumbnail
-    add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
+    add_theme_support( 'post-formats', array( 'image' ) );
+    // add_image_size('large', 700, '', true); // Large Thumbnail
+    // add_image_size('medium', 250, '', true); // Medium Thumbnail
+    // add_image_size('small', 120, '', true); // Small Thumbnail
+    // add_image_size('custom-size', 700, 200, true); // Custom Thumbnail Size call using the_post_thumbnail('custom-size');
 
     // Add Support for Custom Backgrounds - Uncomment below if you're going to use
     /*add_theme_support('custom-background', array(
@@ -494,8 +495,18 @@ require_once(get_stylesheet_directory().'/modules/lazy-load.php');
 // add our custom image sizes
 add_action( 'after_setup_theme', 'xpat_img_sizes' );
 function xpat_img_sizes() {
-  add_image_size( 'xpat-large', 711, 400, true ); // (cropped)
-  add_image_size( 'xpat-small', 300, 169, true ); // (cropped)
+  // add_image_size( 'xpat-large', 728, 410, true ); // (cropped)
+  // add_image_size( 'xpat-small', 300, 169, true ); // (cropped)
+}
+
+add_filter( 'image_size_names_choose', 'my_custom_sizes' );
+function my_custom_sizes( $sizes ) {
+    // return array(
+    //     'xpat-large' => __( 'Totally Full' ),
+    // );
+    return array_merge( $sizes, array(
+        'xpat-large' => __( 'Totally Full' ),
+    ) );
 }
 
 // function custom_excerpt_length( $length ) {
@@ -583,7 +594,7 @@ function mobile_nav()
 }
 
 // remove orphaned shortcodes
-add_filter('the_content', 'remove_orphan_shortcodes', 0);
+add_filter('the_content', 'remove_orphan_shortcodes', 999999);
 
 function remove_orphan_shortcodes($content) {
     global $shortcode_tags;
@@ -627,3 +638,9 @@ function ad_shortcode($atts, $content = null) {
     return $html;
 }
 add_shortcode( 'ad', 'ad_shortcode');
+
+// stop putting <p> tags around <img> in posts
+function filter_ptags_on_images($content){
+   return preg_replace('/<p>(\s*(<\w*\s*.*>)*\s*(<img .*>)\s*(<\/\w*>)*(\s|\w)*)<\/p>/iU', '\1', $content);
+}
+add_filter('the_content', 'filter_ptags_on_images');

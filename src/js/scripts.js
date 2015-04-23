@@ -37,6 +37,7 @@
                         // navDesktop.show('slide', {direction: 'up'}, 1000);
                         if (state.navDesktop.moved) {
                             navShares.hide('slide', {direction: 'right'}, 500, function() {
+                                navDesktop.show();
                                 navDesktop.animate({top:'0px'}, 200);
                             });
                             if (window.innerWidth < 728) {
@@ -53,6 +54,7 @@
                         // slide the socials in
                         if (!state.navDesktop.moved) {
                             navDesktop.animate({top:'-100px'}, 200, function() {
+                                navDesktop.hide();
                                 navShares.show('slide', {direction: 'right'}, 500);
                             });
 
@@ -79,6 +81,7 @@
                 if (isSingle) {
                     if (state.navDesktop.moved) {
                         navShares.hide('slide', {direction: 'right'}, 500, function() {
+                            navDesktop.show();
                             navDesktop.animate({top:'0px'}, 200);
                         });
                         if (window.innerWidth < 728) {

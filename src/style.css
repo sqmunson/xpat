@@ -309,6 +309,9 @@ a:focus, a:hover {
     -ms-transition: color 0.3s ease;
     transition: color 0.3s ease;
 }
+img {
+  height:auto;
+}
 body.single section > article p {
   font-family: 'Mate';
   font-size: 130%;
@@ -428,9 +431,10 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
 .navigation ul ul li a {
     display:block;
     text-decoration:none;
-    padding:10px;
+    padding:10px 10px 10px 13px;
     color:#eeeeee; 
     line-height: 1.3;
+    font-size: .9em;
 }
 .navigation ul ul li a{
     border-top:1px dotted #fa7470;
@@ -457,12 +461,11 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   position: fixed;
   top: 0;
   left: 0;
-  width: 80%;
+  width: 240px;
   height: 100%;
   background-color: #ffffff;
   z-index: 2;
-    overflow-y: scroll;
-  max-width: 240px;
+  overflow-y: scroll;
 }
 
 .mobile-nav ul {
@@ -523,6 +526,18 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   border-top:1px dotted #cccccc;
 }
 
+.mobile-nav .search-wrapper {
+  margin: 15px;
+}
+
+.mobile-nav input.search-input {
+  width:93%;
+}
+
+.mobile-nav button.search-submit {
+  display: none;
+}
+
 span.show-children.active:before {
   content: '\25BC';
 }
@@ -578,7 +593,7 @@ span.show-children:before {
 
 .logo {
   float: left;
-  padding: 20px 10px 20px 0;
+  padding: 20px 0 20px 8px;
 }
 
 .menu-wrapper {
@@ -631,13 +646,13 @@ span.show-children:before {
   /*width: 100%;*/
 }
 .regular-img {
-  width: 42%;
+  width: 300px;
   float: left;
 }
 
 .info-container {
   float: right;
-  width: 55%;
+  width: 400px;
 }
 .info-container h2 {
   margin-top: 0;
@@ -673,7 +688,7 @@ article.list {
 .featured-img .title-container {
   position: absolute;
   bottom: 0;
-  padding: 80px 20px 15px 20px;
+  /*padding: 80px 20px 15px 20px;*/
   /* background-color: rgba(0, 0, 0, 0.5); */
   margin: 0;
   width: 100%;
@@ -688,6 +703,8 @@ article.list {
 
 a.feature-h2-link {
   color:#eeeeee;
+  padding: 80px 20px 15px 20px;
+  display: block;
 }
 a.feature-h2-link:hover {
   color:#ffffff;
@@ -1002,6 +1019,14 @@ article.main-post span.date {
 
 article.main-post span.author {
   float: left;
+}
+
+.featured-image img {
+  width:100%;
+}
+
+article.main-post img {
+  /*width: 100%;*/
 }
 
 @media (max-width: 1135px) {

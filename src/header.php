@@ -39,7 +39,13 @@
           fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));</script>
 
-        <div class="mobile-nav"><?php mobile_nav(); ?></div>
+        <div class="mobile-nav">
+            <?php mobile_nav(); ?>
+            
+            <div class="search-wrapper">
+                <?php get_template_part('searchform'); ?>
+            </div>
+        </div>
         
 		<!-- wrapper -->
 		<div class="wrapper">

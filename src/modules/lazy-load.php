@@ -42,7 +42,7 @@ function lazy_load_query($loop) {
             $search_term = get_search_query();
         }
         if (is_author()) {
-            $author_id = get_the_author_meta('ID');
+            $author = get_the_author_meta('ID');
         }
     }
 

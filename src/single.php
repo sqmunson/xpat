@@ -15,9 +15,11 @@
 			<!-- /post title -->
 
 			<!-- post thumbnail -->
-			<?php if ( has_post_thumbnail()) : // Check if Thumbnail exists ?>
-					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
-			<?php endif; ?>
+			<div class="featured-image">
+				<?php if ( has_post_format( 'image' ) && has_post_thumbnail()) : // Check if Thumbnail exists ?>
+						<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+				<?php endif; ?>
+			</div>
 			<!-- /post thumbnail -->
 
 			<!-- post details -->
@@ -76,7 +78,7 @@
 	            </div>
             </div>
 			
-			<div class="author-details">
+			<div class="author-details clear">
 				<span class="author"><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></span>
 				<?php the_author_meta('description'); ?> 
 			</div>
@@ -85,6 +87,8 @@
 			<span class="tags"><?php pk_the_tags( __( 'Tags: ', 'html5blank' ), ', ', '', 'featured,evergreen'); ?></span>
 
 			<?php // edit_post_link(); // Always handy to have Edit Post Links available ?>
+			
+			<div class="fb-comments" data-href="<?php echo the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
 			<?php comments_template(); ?>
 
