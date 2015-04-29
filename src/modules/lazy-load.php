@@ -202,7 +202,9 @@ function lazy_load_enqueue_scripts(){
         'lazy_load',
         'lazy_load_localize',
         array(
-            'ajaxurl'   => admin_url('admin-ajax.php')
+            // 'ajaxurl'   => admin_url('admin-ajax.php')
+            'ajaxurl'   => get_template_directory_uri() . '/ajax/'
+            // THIS NEEDS TO BE SET TO A RELATIVE PATH FOR CLOUDFRONT!!!!!!!
         )
     );
     
