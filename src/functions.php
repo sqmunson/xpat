@@ -491,6 +491,7 @@ function html5_shortcode_demo_2($atts, $content = null) // Demo Heading H2 short
 /* CUSTOM FUNCTIONS */
 
 require_once(get_stylesheet_directory().'/modules/lazy-load.php');
+require_once(get_stylesheet_directory().'/modules/alternate_post_tag_metabox.php');
 
 // add our custom image sizes
 add_action( 'after_setup_theme', 'xpat_img_sizes' );

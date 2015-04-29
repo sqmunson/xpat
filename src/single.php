@@ -90,7 +90,7 @@
 			
 			<div class="fb-comments" data-href="<?php echo the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
-			<?php comments_template(); ?>
+			<?php // comments_template(); ?>
 
 		</article>
 		<!-- /article -->

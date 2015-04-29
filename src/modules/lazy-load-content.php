@@ -1,5 +1,8 @@
 <?php
   $featured = has_term( 'featured', 'post_tag');
+  // $post_alternative_cat_tag = get_post_meta($post->ID,'post_alternative_cat_tag', true);
+  // $the_categories = wp_get_post_categories( $post->ID );
+  // $cat = get_category( $the_categories[0] );
 ?>
 <!-- article -->
 <article id="post-<?php the_ID(); ?>" <?php post_class( array('clear','list') ); ?>>

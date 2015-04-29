@@ -463,9 +463,12 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   left: 0;
   width: 240px;
   height: 100%;
-  background-color: #ffffff;
+  background-color: #eeeeee;
   z-index: 2;
   overflow-y: scroll;
+  -webkit-box-shadow: 0px 0px 10px -2px #222222;
+  -moz-box-shadow: 0px 0px 10px -2px #222222;
+  box-shadow: 0px 0px 10px -2px #222222;
 }
 
 .mobile-nav ul {
@@ -818,6 +821,7 @@ header .share i {
   position: relative;
   top: 8px;
   font-weight: 600;
+  padding-right: 10px;
 }
 
 .content-wrapper .share i {
@@ -1029,6 +1033,16 @@ article.main-post img {
   /*width: 100%;*/
 }
 
+.wp-caption {
+  border: none;
+}
+.wp-caption .wp-caption-text {
+  font-size: 90%;
+  font-family: 'Source Sans Pro', sans-serif;
+  padding: 10px 0;
+  border-bottom: 1px dotted #cccccc;
+}
+
 @media (max-width: 1135px) {
   .logo {
     padding: 20px 10px 20px 20px;
@@ -1125,5 +1139,11 @@ article.main-post img {
   }
   article.main-post p {
     margin-left:15px;
+  }
+  .share span {
+    font-size: 1em;
+  }
+  .content-wrapper .share i {
+    font-size: 1.2em;
   }
 }
