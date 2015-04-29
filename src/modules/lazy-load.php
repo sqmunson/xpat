@@ -197,7 +197,7 @@ add_action( 'wp_ajax_lazy_load_query', 'lazy_load_query');
 
 // enqueue scripts and insert js variable in page
 function lazy_load_enqueue_scripts(){
-    wp_enqueue_script( 'lazy_load', get_template_directory_uri() . '/js/lazyload.js', array('jquery'),  '1.1', true );
+    wp_enqueue_script( 'lazy_load', get_template_directory_uri() . '/js/lib/lazyload.js', array('jquery'),  '1.1', true );
     wp_localize_script(
         'lazy_load',
         'lazy_load_localize',
