@@ -58,7 +58,7 @@
 
 					<!-- logo -->
                     <?php
-                        $pego_logo = get_template_directory_uri()."/images/logo.png";
+                        $pego_logo = get_template_directory_uri()."/img/xpat_red.jpg";
                         $pego_logo_retina = '';
 
                         if ( function_exists( 'ot_get_option' ) ) {
