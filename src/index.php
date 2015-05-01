@@ -1,6 +1,14 @@
 <?php get_header(); ?>
 
 	<main role="main" class="content">
+        <div class="header-ad">
+            <?php
+                // ad at the very top
+                echo do_shortcode('[ad type="desktop" size="728x90"]');
+                // echo do_shortcode('[ad type="mobile" size="300x250"]');
+            ?>    
+        </div>
+
 		<!-- section -->
 		<section id="content">
 
