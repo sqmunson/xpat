@@ -143,7 +143,7 @@
           if (alm.AjaxLoadMore.isVisible()) {
             // this loads more posts when we get to the bottom of the page
              var content_offset = alm.button.offset();
-             if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - alm.window.height())) && alm.proceed) {                  
+             if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - alm.window.height() - 50)) && alm.proceed) {                  
                 alm.page++;
                 alm.AjaxLoadMore.loadPosts();
              }
