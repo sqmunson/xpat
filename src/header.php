@@ -82,6 +82,10 @@
 					</div>
 					<!-- /logo -->
 
+                    <div class="fb-like-header">
+                        <div class="fb-like" data-href="https://www.facebook.com/xpatnation" data-layout="button" data-action="like" data-show-faces="false" data-share="false"></div>
+                    </div>
+
                     <!-- search -->
                     <!-- <div class="search-wrapper">
                         <?php // get_template_part('searchform'); ?>
