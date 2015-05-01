@@ -1,6 +1,14 @@
 <?php get_header(); ?>
 
 	<main role="main" class="content">
+		<div class="header-ad">
+            <?php
+                // ad at the very top
+                echo do_shortcode('[ad type="desktop" size="728x90"]');
+                echo do_shortcode('[ad type="mobile" size="300x250"]');
+            ?>    
+        </div>
+
 	<!-- section -->
 	<section id="content">
 
@@ -33,6 +41,13 @@
 				<span class="comments"><?php if (comments_open( get_the_ID() ) ) comments_popup_link( __( 'Leave your thoughts', 'html5blank' ), __( '1 Comment', 'html5blank' ), __( '% Comments', 'html5blank' )); ?></span>
 			</div>
 			<!-- /post details -->
+
+			<div class="fb-in-post desktop">
+				<div class="fb-like" data-href="https://www.facebook.com/xpatnation" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+			</div>
+			<div class="fb-in-post mobile">
+				<div class="fb-like" data-href="https://www.facebook.com/xpatnation" data-width="300" data-layout="standard" data-action="like" data-show-faces="false" data-share="false"></div>
+			</div>
 
 			<div class="shares clear mobile">
                 <div class="fb-share share">
