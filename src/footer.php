@@ -17,6 +17,12 @@
 		</div>
 		<!-- /wrapper -->
 
+		<script type="text/javascript">
+			// Taboola part 3
+			window._taboola = window._taboola || [];
+			_taboola.push({flush: true});
+		</script>
+
 		<?php wp_footer(); ?>
 
 		<!-- analytics -->

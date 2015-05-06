@@ -69,6 +69,20 @@
         ?>
     </div>
 
+    <div class="zergnet">
+        <div id="zergnet-widget-30039"></div>
+        <script language="javascript" type="text/javascript">
+            (function() {
+                var zergnet = document.createElement('script');
+                zergnet.type = 'text/javascript';
+                zergnet.async = true;
+                zergnet.src = 'http://www.zergnet.com/zerg.js?id=30039';
+                var znscr = document.getElementsByTagName('script')[0];
+                znscr.parentNode.insertBefore(zergnet, znscr);
+            })();
+        </script>
+    </div>
+
     <div>
         <!-- <div class="clear ad desktop-300x600">
             <script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600"></script>

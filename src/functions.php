@@ -505,9 +505,9 @@ function my_custom_sizes( $sizes ) {
     // return array(
     //     'xpat-large' => __( 'Totally Full' ),
     // );
-    return array_merge( $sizes, array(
-        'xpat-large' => __( 'Totally Full' ),
-    ) );
+    // return array_merge( $sizes, array(
+    //     'xpat-large' => __( 'Totally Full' ),
+    // ) );
 }
 
 // function custom_excerpt_length( $length ) {

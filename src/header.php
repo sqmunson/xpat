@@ -18,6 +18,18 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/stackicons/css/stackicons-min.css">
 
 		<?php wp_head(); ?>
+        <script type="text/javascript">
+            // Taboola script part 1.
+            // Part 2 is at the end of article in single.php
+            // Part 3 is in footer.php
+            window._taboola = window._taboola || [];
+            _taboola.push({article:'auto'});
+            !function (e, f, u) {
+                e.async = 1;
+                e.src = u;
+                f.parentNode.insertBefore(e, f);
+            }(document.createElement('script'), document.getElementsByTagName('script')[0], '//cdn.taboola.com/libtrc/xpatnation/loader.js');
+        </script>
 		<script>
         // conditionizr.com
         // configure environment tests

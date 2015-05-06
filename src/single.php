@@ -6,7 +6,7 @@
                 // ad at the very top
                 echo do_shortcode('[ad type="desktop" size="728x90"]');
                 echo do_shortcode('[ad type="mobile" size="300x250"]');
-            ?>    
+            ?>
         </div>
 
 	<!-- section -->
@@ -92,20 +92,35 @@
 	                </a>
 	            </div>
             </div>
-			
-			<div class="author-details clear">
-				<span class="author"><?php _e( 'This post was written by ', 'html5blank' ); the_author(); ?></span>
-				<?php the_author_meta('description'); ?> 
+
+			<div class="meta-container">
+				<div class="author-details clear">
+					<div class="author">
+						<span class="label"><?php _e( 'Written by ', 'html5blank' ); ?></span>
+						<?php the_author_posts_link(); ?>
+					</div>
+					<?php // the_author_meta('description'); ?>
+				</div>
+				<?php //the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
+				<div class="categories"><span class="label"><?php _e( 'Categorized in ', 'html5blank' ); ?></span> <?php the_category(', '); // Separated by commas ?></div>
+				<div class="tags"><span class="label"><?php _e( 'Tagged with ', 'html5blank' ); ?></span><?php pk_the_tags( '', ', ', '', 'featured,evergreen'); ?></div>
 			</div>
-			<?php //the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
-			<span class="categories"><?php _e( 'Categorised in: ', 'html5blank' ); the_category(', '); // Separated by commas ?></span>
-			<span class="tags"><?php pk_the_tags( __( 'Tags: ', 'html5blank' ), ', ', '', 'featured,evergreen'); ?></span>
 
 			<?php // edit_post_link(); // Always handy to have Edit Post Links available ?>
-			
+
 			<div class="fb-comments" data-href="<?php echo the_permalink(); ?>" data-width="100%" data-numposts="5" data-colorscheme="light"></div>
 
 			<?php // comments_template(); ?>
+
+			<div class="taboola-container">
+				<div id="taboola-below-article"></div>
+				<script type='text/javascript'>
+					// Taboola Part 2, div#taboola-below-article is only dependency, container is for our custom styling
+					window._taboola = window._taboola || [];
+					_taboola.push({mode:'thumbnails-a', container:'taboola-below-article', placement:'below-article', target_type: 'mix'});
+				</script>
+			</div>
+
 
 		</article>
 		<!-- /article -->

@@ -908,6 +908,7 @@ button.search-submit {
 
 .sidebar h2 {
   font-weight: 600;
+  font-size: 1.2em;
 }
 
 .featured {
@@ -1023,6 +1024,10 @@ span.featured-heading {
   margin-bottom: 20px;
 }
 
+body.single .header-ad .desktop-728x90 div.space:nth-child(n+4) {
+  margin-bottom: 0;
+}
+
 .details {
     margin-top: 20px;
   border-top: 1px dotted #ccc;
@@ -1073,6 +1078,53 @@ article.main-post img {
 .fb-in-post.mobile {
   display: none;
 }
+.meta-container {
+    padding-bottom: 20px;
+  border-bottom: 1px dotted #ccc;
+  margin-bottom: 10px;
+  font-size: 1.1em;
+}
+.meta-container div {
+  padding: 2px 0;
+}
+.meta-container span.label {
+  text-transform: uppercase;
+  font-size: .8em;
+  padding-right: 4px;
+}
+.author-description {
+
+}
+.zergnet {
+  padding: 20px 0;
+  border-top: 1px dotted #ccc;
+}
+
+.taboola-container {
+  padding-top: 20px;
+  border-top: 1px dotted #ccc;
+  margin-top: 20px;
+}
+.thumbnails-a .trc_rbox_header,
+.thumbnails-a .syndicatedItem .video-title,
+.thumbnails-a .syndicatedItem .branding {
+  font-family: 'Source Sans Pro' !important;
+}
+
+.author-info img {
+  float: left;
+  margin: 0 20px 10px 0;
+}
+
+.author-info h2 {
+  margin: 0;
+}
+.author-info {
+   margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px dotted #ccc;
+}
+
 
 /* */
 
@@ -1276,5 +1328,9 @@ article.main-post img {
     display: block;
     padding-left: 15px;
     padding-bottom: 5px;
+  }
+  .author-info {
+    padding-left:20px;
+    padding-right: 20px;
   }
 }

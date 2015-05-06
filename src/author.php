@@ -4,15 +4,18 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Author Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
+			<h1><?php _e( 'Archives for ', 'html5blank' ); echo get_the_author(); ?></h1>
 
 			<?php if ( get_the_author_meta('description')) : ?>
 
-				<?php echo get_avatar(get_the_author_meta('user_email')); ?>
+				<div class="author-info">
+					<?php echo get_avatar(get_the_author_meta('user_email')); ?>
 
-				<h2><?php _e( 'About ', 'html5blank' ); echo get_the_author() ; ?></h2>
+					<h2><?php _e( 'About ', 'html5blank' ); echo get_the_author() ; ?></h2>
 
-				<?php echo wpautop( get_the_author_meta('description') ); ?>
+					<?php echo wpautop( get_the_author_meta('description') ); ?>
+				</div>
+
 
 			<?php endif; ?>
 
