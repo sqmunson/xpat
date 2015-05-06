@@ -514,7 +514,7 @@ function my_custom_sizes( $sizes ) {
 //     return 20;
 // }
 // add_filter( 'excerpt_length', 'custom_excerpt_length', 999 );
-    
+
 
 // first method of filtering out certain tags in the single.php page
 // this function is called INSTEAD of the_tags()
@@ -524,7 +524,7 @@ function pk_the_tags( $before = 'Tags: ', $sep = ', ', $after = '', $exclude = '
     if (empty($tags)) { return false; }
 
     $tag_list = $before;
-       
+
     foreach ( $tags as $tag ) {
         if (!empty($exclude)) {
             $pos = stripos( $exclude, $tag->name);
@@ -533,7 +533,7 @@ function pk_the_tags( $before = 'Tags: ', $sep = ', ', $after = '', $exclude = '
         }
 
         if ($pos === false) {
-            $tag_links[] = '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>';  
+            $tag_links[] = '<a href="' . get_tag_link($tag->term_id) . '">' . $tag->name . '</a>';
         }
     }
 
@@ -599,24 +599,24 @@ add_filter('the_content', 'remove_orphan_shortcodes', 999999);
 
 function remove_orphan_shortcodes($content) {
     global $shortcode_tags;
-    
+
     //Check for active shortcodes
     $active_shortcodes = ( is_array($shortcode_tags) && !empty($shortcode_tags) ) ? array_keys($shortcode_tags) : array();
-    
+
     $hack = md5(microtime());
     $content = str_replace("/",$hack, $content); //avoid "/" chars in content breaks preg_replace
-    
+
     if(!empty($active_shortcodes)){
         //Be sure to keep active shortcodes
         $keep_active = implode("|", $active_shortcodes);
         $content= preg_replace( "~(?:\[/?)(?!(?:$keep_active))[^/\]]+/?\]~s", '', $content );
     } else {
         //Strip all shortcodes
-        $content = preg_replace("~(?:\[/?)[^/\]]+/?\]~s", '', $content);            
+        $content = preg_replace("~(?:\[/?)[^/\]]+/?\]~s", '', $content);
     }
-    
+
     $content = str_replace($hack,"/",$content); // set "/" back to its place
-        
+
     return $content;
 }
 

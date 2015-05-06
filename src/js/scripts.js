@@ -63,7 +63,7 @@
                     state.logoHidden = true;
                     state.sharesHidden = false;
                 }
-                
+
             }
         }
 
@@ -72,7 +72,7 @@
 
                 // slide the desktop shares off screen
                 navShares.hide('slide', {direction: 'right'}, 500, function() {
-                    
+
                     // show the desktop nav
                     navDesktop.show();
 
@@ -91,7 +91,7 @@
 
                     // show the logo
                     logo.show(); // might cause issues with hamburger click below
-                    
+
                     // hide the mobile shares
                     mobileShares.hide();
 
@@ -229,7 +229,7 @@
         });
 
         $('.show-children').click(toggleMobileMenuChildren);
-        
+
 	});
 
 } ( this, jQuery ));

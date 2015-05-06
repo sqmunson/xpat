@@ -53,12 +53,12 @@
 
         <div class="mobile-nav">
             <?php mobile_nav(); ?>
-            
+
             <div class="search-wrapper">
                 <?php get_template_part('searchform'); ?>
             </div>
         </div>
-        
+
 		<!-- wrapper -->
 		<div class="wrapper">
 
@@ -126,7 +126,7 @@
                         <?php html5blank_nav(); ?>
 					</nav>
 					<!-- /nav -->
-                    
+
                     <div class="hamburger-holder">
                         <div class="shares">
                             <div class="fb-share share">

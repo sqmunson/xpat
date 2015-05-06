@@ -89,7 +89,7 @@ function lazy_load_query($loop) {
     }
 
     if ($categories && !$tags) {
-        
+
         $featured_post_args['tax_query'][] = array(
             'taxonomy' => 'category',
             'field'    => 'term_id',
@@ -209,7 +209,7 @@ function lazy_load_enqueue_scripts(){
             // THIS NEEDS TO BE SET TO A RELATIVE PATH FOR CLOUDFRONT!!!!!!!
         )
     );
-    
+
 }
 add_action( 'wp_enqueue_scripts', 'lazy_load_enqueue_scripts' );
 
@@ -256,4 +256,4 @@ function lazy_load_shortcode($atts, $content = null) {
 
     return $html;
 }
-add_shortcode( 'lazy_load', 'lazy_load_shortcode');  
+add_shortcode( 'lazy_load', 'lazy_load_shortcode');

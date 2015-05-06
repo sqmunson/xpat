@@ -1,8 +1,8 @@
-(function ($) { 
-   "use strict";   
-      
+(function ($) {
+   "use strict";
+
    $.ajaxloadmore = function (el) {
-      
+
       //Set variables
       var alm = this;
       alm.AjaxLoadMore = {};
@@ -28,12 +28,12 @@
       alm.AjaxLoadMore.loadPosts = function () {
          if(!alm.disable_ajax){ // Check for ajax blocker
             alm.button.addClass('loading');
-            alm.loading = true;            
-            
+            alm.loading = true;
+
             alm.AjaxLoadMore.ajax();
          }
       };
-      
+
       alm.AjaxLoadMore.ajax = function () {
          $.ajax({
             type: "GET",
@@ -63,20 +63,20 @@
             }
          });
       };
-      
+
       alm.AjaxLoadMore.success = function (data) {
-         alm.data = $(data); // Convert data to an object                  
+         alm.data = $(data); // Convert data to an object
          if (alm.init) {
             alm.init = false;
-            
-            // ALM Empty - triggers if zero results were returned 
+
+            // ALM Empty - triggers if zero results were returned
             if(!alm.data.length > 0){
                if ($.isFunction($.fn.almEmpty)) {
                   $.fn.almEmpty(alm);
                }
             }
          }
-         
+
          if (alm.data.length > 0) {
             alm.el = $('<div class="ll-reveal"/>');
             alm.el.append(alm.data).hide();
@@ -95,25 +95,25 @@
 
             // load ads!
             window.loadAds();
-                
-            // ALM Complete 
+
+            // ALM Complete
             if ($.isFunction($.fn.almComplete)) {
                $.fn.almComplete(alm);
             }
-            
+
          } else {
             alm.button.delay(alm.speed).removeClass('loading').addClass('done');
             alm.loading = false;
             alm.finished = true;
          }
       };
-      
+
       alm.AjaxLoadMore.error = function (jqXHR, textStatus, errorThrown) {
          alm.loading = false;
          alm.button.removeClass('loading');
          console.log(errorThrown);
       };
-      
+
       alm.AjaxLoadMore.isVisible = function () {
         alm.visible = false;
         if (alm.el.is(":visible")) {
@@ -121,16 +121,16 @@
         }
         return alm.visible;
       };
-      
+
 
       /* Window scroll and touchmove events
-       * 
+       *
        *  Load posts as user scrolls the page
        *  @since 1.0
        */
        alm.window.bind("scroll touchstart", function () {
           // var content_offset = alm.button.offset();
-          // if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - (alm.window.height() * 1.5))) && alm.proceed) {                  
+          // if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - (alm.window.height() * 1.5))) && alm.proceed) {
           //   // this loads more posts when we get half way down the page
           //   alm.el.fadeIn(alm.speed, 'alm_easeInOutQuad', function () {
           //     alm.button.delay(alm.speed).removeClass('loading');
@@ -143,16 +143,16 @@
           if (alm.AjaxLoadMore.isVisible()) {
             // this loads more posts when we get to the bottom of the page
              var content_offset = alm.button.offset();
-             if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - alm.window.height() - 50)) && alm.proceed) {                  
+             if (!alm.loading && !alm.finished && (alm.window.scrollTop() >= Math.round(content_offset.top - alm.window.height() - 50)) && alm.proceed) {
                 alm.page++;
                 alm.AjaxLoadMore.loadPosts();
              }
           }
        });
-      
+
 
       /* Init Ajax load More
-       * 
+       *
        *  Load posts as user scrolls the page
        *  @since 2.0
        */
@@ -183,10 +183,10 @@
    };
 
    // End $.ajaxloadmore
-   
-   
+
+
    /* $.fn.ajaxloadmore()
-    * 
+    *
     *  Initiate all instances of Ajax load More
     *  @since 2.1.2
     */
@@ -196,11 +196,11 @@
       });
    };
 
-   /* 
+   /*
     *  Initiate Ajax load More if div is present on screen
     *  @since 2.1.2
     */
-   if ($(".lazy-load-more").length) 
+   if ($(".lazy-load-more").length)
       $(".lazy-load-more").ajaxloadmore();
 
 })(jQuery);

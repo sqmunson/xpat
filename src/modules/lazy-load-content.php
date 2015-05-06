@@ -30,9 +30,9 @@
   </div>
   <?php endif; ?>
   <!-- /post thumbnail -->
-  
+
   <div class="<?php echo $featured ? 'featured-info-container' : 'info-container'; ?>">
-    
+
       <!-- post title -->
       <h2>
         <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>"><?php the_title(); ?></a>
