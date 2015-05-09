@@ -13,7 +13,8 @@ jQuery(document).ready(function($, p) {
 	    	adspots_300x250 = $('.mobile-300x250');
 	    	if (adspots_300x250.length) {
 	    		adspots_300x250.each(function() {
-	    			if (this.childNodes.length === 0) {
+	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
+	    				$(this).addClass('loaded');
 				        p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x250"></script><div class="space"></div>');
 	    			}
 	    		});
@@ -26,7 +27,8 @@ jQuery(document).ready(function($, p) {
 
 	    	if (adspots_300x250.length) {
 	    		adspots_300x250.each(function() {
-	    			if (this.childNodes.length === 0) {
+	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
+	    				$(this).addClass('loaded');
 				    	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x250"></script><div class="space"></div>');
 	    			}
 	    		});
@@ -34,7 +36,8 @@ jQuery(document).ready(function($, p) {
 
 	    	if (adspots_300x600.length) {
 	    		adspots_300x600.each(function() {
-	    			if (this.childNodes.length === 0) {
+	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
+	    				$(this).addClass('loaded');
 			    		p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600"></script><div class="space"></div>');
 	    			}
 	    		});
@@ -42,7 +45,8 @@ jQuery(document).ready(function($, p) {
 
 	    	if (adspots_728x90.length) {
 	    		adspots_728x90.each(function() {
-	    			if (this.childNodes.length === 0) {
+	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
+	    				$(this).addClass('loaded');
 				    	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/728x90"></script><div class="space"></div>');
 	    			}
 	    		});

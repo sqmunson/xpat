@@ -300,7 +300,8 @@ p {
   font-weight: 300;
   font-size: 110%;
 }
-a:focus, a:hover {
+a:focus, a:hover,
+.main-post a:focus, .main-post a:hover {
   text-decoration: none;
   color: #ec2923;
   -webkit-transition: color 0.3s ease;
@@ -308,6 +309,9 @@ a:focus, a:hover {
     -o-transition: color 0.3s ease;
     -ms-transition: color 0.3s ease;
     transition: color 0.3s ease;
+}
+.main-post a {
+  color: #5179bb;
 }
 img {
   height:auto;
@@ -533,11 +537,11 @@ nav li li.menu-item-has-children > a > span.indicate-children:before {
   margin: 15px;
 }
 
-.mobile-nav input.search-input {
+.mobile-nav input.xpat-search-input {
   width:93%;
 }
 
-.mobile-nav button.search-submit {
+.mobile-nav button.xpat-search-submit {
   display: none;
 }
 
@@ -730,9 +734,11 @@ a.feature-h2-link:hover {
 }
 .fb-like-header {
   display: none;
-  float: left;
+  /*float: left;*/
   /*padding: 14px 0 0 10px;*/
   padding: 30px 0 0 20px;
+  position: absolute;
+  right:48px;
 }
 body.single .fb-share, body.single .twitter-share, body.single .email-share {
   display: block;
@@ -878,13 +884,14 @@ aside .share {
   background: #bbbbbb;
 }
 
-input.search-input {
-  width: 218px;
-  padding:5px;
+input.xpat-search-input {
+  width: 217px;
+  padding: 5px;
+  margin-right: 7px;
 }
 
-button.search-submit {
-    padding: 7px 10px;
+button.xpat-search-submit {
+    padding: 7px 14px;
 }
 
 .featured-info-container h2 {
@@ -1320,6 +1327,10 @@ article.main-post img {
   }
   .fb-like-header {
     padding: 14px 0 0 10px;
+    display: block;
+  }
+  body.single .fb-like-header {
+    display: none;
   }
   .fb-in-post.desktop {
     display:none;

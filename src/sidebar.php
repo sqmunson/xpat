@@ -90,7 +90,7 @@
         </div> -->
         <?php
             // dektop 300x600 ad
-            echo do_shortcode('[ad type="desktop" size="300x600"]');
+            echo do_shortcode('[ad type="desktop" size="300x250"]');
         ?>
     </div>
 

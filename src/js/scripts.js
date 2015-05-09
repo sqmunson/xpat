@@ -133,10 +133,10 @@
 
                 if (isHome && width < 1050) {
                     // turn logo into Like Button
-                    logo.hide();
-                    headerLike.show();
-                    state.logoHidden = true;
-                    state.headerLikeHidden = false;
+                    // logo.hide();
+                    // headerLike.show();
+                    // state.logoHidden = true;
+                    // state.headerLikeHidden = false;
                 }
 
                 if (isSingle) {
@@ -158,10 +158,10 @@
 
                 if (isHome && width < 1050) {
                     // turn Like Button back into logo
-                    logo.show();
-                    headerLike.hide();
-                    state.logoHidden = false;
-                    state.headerLikeHidden = true;
+                    // logo.show();
+                    // headerLike.hide();
+                    // state.logoHidden = false;
+                    // state.headerLikeHidden = true;
                 }
 
                 if (isSingle) {
@@ -194,7 +194,7 @@
             }
 
             if (!state.headerLikeHidden) {
-                headerLike.toggle();
+                // headerLike.toggle();
             }
         }
 
