@@ -88,7 +88,10 @@ function lazy_load_query($loop) {
         );
     }
 
-    if ($categories && !$tags) {
+    if ($categories) {
+
+        // this is a temporary hack since loading by tag isn't working in production!!!!
+        // the three conditionals below SHOULD work but are currently commented out
 
         $featured_post_args['tax_query'][] = array(
             'taxonomy' => 'category',
@@ -101,54 +104,75 @@ function lazy_load_query($loop) {
             'field'    => 'term_id',
             'terms'    => $categories,
         );
+    }
+
+    if ($categories && !$tags) {
+
+        // temporarily commented out
+
+        // $featured_post_args['tax_query'][] = array(
+        //     'taxonomy' => 'category',
+        //     'field'    => 'term_id',
+        //     'terms'    => $categories,
+        // );
+
+        // $regular_post_args['tax_query'][] = array(
+        //     'taxonomy' => 'category',
+        //     'field'    => 'term_id',
+        //     'terms'    => $categories,
+        // );
     }
 
     if ($tags && !$categories) {
 
-        $featured_post_args['tax_query'][] = array(
-            array(
-                'taxonomy' => 'post_tag',
-                'field'    => 'slug',
-                'terms'    => $tags,
-            ),
-        );
+        // temporarily commented out
 
-        $regular_post_args['tax_query'][] = array(
-            'taxonomy' => 'post_tag',
-            'field'    => 'slug',
-            'terms'    => $tags,
-        );
+        // $featured_post_args['tax_query'][] = array(
+        //     array(
+        //         'taxonomy' => 'post_tag',
+        //         'field'    => 'slug',
+        //         'terms'    => $tags,
+        //     ),
+        // );
+
+        // $regular_post_args['tax_query'][] = array(
+        //     'taxonomy' => 'post_tag',
+        //     'field'    => 'slug',
+        //     'terms'    => $tags,
+        // );
     }
 
     if ($categories && $tags) {
 
-        $featured_post_args['tax_query'][] = array(
-            'relation' => 'OR',
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'term_id',
-                'terms'    => $categories,
-            ),
-            array(
-                'taxonomy' => 'post_tag',
-                'field'    => 'slug',
-                'terms'    => $tags,
-            ),
-        );
+        // temporarily commented out
 
-        $regular_post_args['tax_query'][] = array(
-            'relation' => 'OR',
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'term_id',
-                'terms'    => $categories,
-            ),
-            array(
-                'taxonomy' => 'post_tag',
-                'field'    => 'slug',
-                'terms'    => $tags,
-            ),
-        );
+        // $featured_post_args['tax_query'][] = array(
+        //     'relation' => 'OR',
+        //     array(
+        //         'taxonomy' => 'category',
+        //         'field'    => 'term_id',
+        //         'terms'    => $categories,
+        //     ),
+        //     array(
+        //         'taxonomy' => 'post_tag',
+        //         'field'    => 'slug',
+        //         'terms'    => $tags,
+        //     ),
+        // );
+
+        // $regular_post_args['tax_query'][] = array(
+        //     'relation' => 'OR',
+        //     array(
+        //         'taxonomy' => 'category',
+        //         'field'    => 'term_id',
+        //         'terms'    => $categories,
+        //     ),
+        //     array(
+        //         'taxonomy' => 'post_tag',
+        //         'field'    => 'slug',
+        //         'terms'    => $tags,
+        //     ),
+        // );
     }
 
     if ($search_term) {
