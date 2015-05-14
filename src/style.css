@@ -944,7 +944,7 @@ span.featured-heading {
 
 .sticky-ad.stick {
   position: fixed;
-  bottom: 20px;
+  bottom: 0;
 }
 
 .content .ad {
@@ -1019,7 +1019,7 @@ span.featured-heading {
 
 .desktop-300x250 div.space:nth-child(n+4) {
   width: 100%;
-  height: 270px;
+  height: 290px;
   float: left;
 }
 
@@ -1343,5 +1343,9 @@ article.main-post img {
   .author-info {
     padding-left:20px;
     padding-right: 20px;
+  }
+  .meta-container {
+    margin-left: 15px;
+    margin-right: 15px;
   }
 }
