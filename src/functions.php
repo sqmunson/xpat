@@ -642,6 +642,7 @@ add_shortcode( 'ad', 'ad_shortcode');
 
 // stop putting <p> tags around <img> in posts
 function filter_ptags_on_images($content){
-   return preg_replace('/<p>(\s*(<\w*\s*.*>)*\s*(<img .*>)\s*(<\/\w*>)*(\s|\w)*)<\/p>/iU', '\1', $content);
+   // return preg_replace('/<p>(\s*(<\w*\s*.*>)*\s*(<img .*>)\s*(<\/\w*>)*(\s|\w)*)<\/p>/iU', '\1', $content);
+   return preg_replace('/<p.*>(.*(<img .*>).*)<\/p>/iU', '\1', $content);
 }
 add_filter('the_content', 'filter_ptags_on_images');

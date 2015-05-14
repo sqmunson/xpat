@@ -70,7 +70,7 @@
 	            </div>
             </div>
 
-			<?php the_content(); // Dynamic Content ?>
+			<?php the_content(); ?>
 
 			<div class="shares clear">
                 <div class="fb-share share">
@@ -103,7 +103,9 @@
 				</div>
 				<?php //the_tags( __( 'Tags: ', 'html5blank' ), ', ', '<br>'); // Separated by commas with a line break at the end ?>
 				<div class="categories"><span class="label"><?php _e( 'Categorized in ', 'html5blank' ); ?></span> <?php the_category(', '); // Separated by commas ?></div>
-				<div class="tags"><span class="label"><?php _e( 'Tagged with ', 'html5blank' ); ?></span><?php pk_the_tags( '', ', ', '', 'featured,evergreen'); ?></div>
+				<?php $tags = get_the_tags(); if (!empty($tags)) { ?>
+					<div class="tags"><span class="label"><?php _e( 'Tagged with ', 'html5blank' ); ?></span><?php pk_the_tags( '', ', ', '', 'featured,evergreen'); ?></div>
+				<?php } ?>
 			</div>
 
 			<?php // edit_post_link(); // Always handy to have Edit Post Links available ?>

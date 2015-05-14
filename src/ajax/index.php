@@ -37,8 +37,11 @@ if ( empty( $_REQUEST['action'] ) )
 $core_actions_get = array('lazy_load_query');
 
 // Register core Ajax calls.
-if ( ! empty( $_GET['action'] ) && in_array( $_GET['action'], $core_actions_get ) )
-    add_action( 'wp_ajax_' . $_GET['action'], 'wp_ajax_' . str_replace( '-', '_', $_GET['action'] ), 1 );
+// if ( ! empty( $_GET['action'] ) && in_array( $_GET['action'], $core_actions_get ) )
+//     add_action( 'wp_ajax_' . $_GET['action'], 'wp_ajax_' . str_replace( '-', '_', $_GET['action'] ), 1 );
+
+if ( empty( $_GET['action'] ) || !in_array( $_GET['action'], $core_actions_get ) )
+    return;
 
 header('Content-Type: text/html');
 
