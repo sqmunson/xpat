@@ -969,7 +969,7 @@ span.featured-heading {
   background-color: #dddddd;
 }*/
 
-.mobile-300x250 {
+.mobile-300x250, .mobile-300x50 {
   position: relative;
   margin: 0 auto;
   width: 300px;
@@ -985,11 +985,22 @@ span.featured-heading {
   margin-bottom: 20px;
 }
 
-.header-ad .mobile-300x250 div.space:nth-child(n+4) {
+.mobile-300x50 div.space:nth-child(n+4) {
+  float: left;
+  width: 100%;
+  height: 90px;
+  border-bottom: 1px dotted #ccc;
+  border-top: 1px dotted #ccc;
+  margin-bottom: 20px;
+}
+
+.header-ad .mobile-300x250 div.space:nth-child(n+4),
+.header-ad .mobile-300x50 div.space:nth-child(n+4) {
   border-top: none;
 }
 
-.mobile-300x250 div:not(.space) {
+.mobile-300x250 div:not(.space),
+.mobile-300x50 div:not(.space) {
   position: absolute;
 }
 
@@ -997,7 +1008,7 @@ span.featured-heading {
   position: relative; /* set so that child iframe can be absolute */
 }
 
-.desktop-300x600 iframe, .desktop-300x250 iframe, .mobile-300x250 iframe {
+.desktop-300x600 iframe, .desktop-300x250 iframe, .mobile-300x250 iframe, .mobile-300x50 iframe {
   /* set so that sibling div can create space */
   position: absolute;
   top:20px;
@@ -1286,7 +1297,7 @@ article.main-post img {
   .desktop-728x90, .desktop-300x600, .desktop-300x250 {
     display: none;
   }
-  .mobile-300x250 {
+  .mobile-300x250, .mobile-300x50 {
     display:block;
   }
   article.main-post span.date, article.main-post span.author {
