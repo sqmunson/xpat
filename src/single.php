@@ -70,9 +70,9 @@
 	            </div>
             </div>
 
-			<?php the_content(); ?>
-
-
+            <div class="article-content">
+                <?php the_content(); ?>
+            </div>
 
 			<div class="shares clear">
                 <div class="fb-share share">
