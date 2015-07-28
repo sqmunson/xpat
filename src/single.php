@@ -72,6 +72,8 @@
 
 			<?php the_content(); ?>
 
+
+
 			<div class="shares clear">
                 <div class="fb-share share">
                     <a href="javascript:fb_share()" class="btn">
@@ -92,6 +94,22 @@
 	                </a>
 	            </div>
             </div>
+
+
+            <!-- MEDIABONG -->
+            <div id="mb_container"></div>
+            <div id="mb_video_sponso"></div>
+            <script type="text/javascript">
+            (function(){
+                var sc = document.createElement('script');
+                sc.src = 'http://player.mediabong.net/se/209.js?url='+encodeURIComponent(document.location.href);
+                sc.type = 'text/javascript';
+                sc.async = true;
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(sc, s);
+            })();
+            </script>
+            <!-- MEDIABONG -->
+
 
 			<div class="meta-container">
 				<div class="author-details clear">
