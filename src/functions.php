@@ -646,3 +646,8 @@ function filter_ptags_on_images($content){
    return preg_replace('/<p.*>(.*(<img .*>).*)<\/p>/iU', '\1', $content);
 }
 add_filter('the_content', 'filter_ptags_on_images');
+
+function mediabong_shortcode() {
+    return '<div><div id="mb_video_syncad" class="floating_banner no_video"></div></div>';
+}
+add_shortcode('mediabong', 'mediabong_shortcode');
