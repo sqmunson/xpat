@@ -237,5 +237,7 @@
 function fb_share(url, winWidth, winHeight) {
     var winTop = (screen.height / 2) - (300 / 2);
     var winLeft = (screen.width / 2) - (550 / 2);
-    window.open('http://www.facebook.com/sharer/sharer.php?u=' + window.location + '&', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=550,height=300');
+    var location = window.location;
+    var url = location.protocol + '//' + location.host + location.pathname + location.hash;
+    window.open('http://www.facebook.com/sharer/sharer.php?u=' + url + '&', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=550,height=300');
 }
