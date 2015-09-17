@@ -936,6 +936,7 @@ span.featured-heading {
   position: fixed;
   top: 105px;
   width: 300px;
+  z-index: 99999;
 }
 
 .sticky-fb-like {
