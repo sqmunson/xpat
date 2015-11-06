@@ -27,7 +27,8 @@ jQuery(document).ready(function($, p) {
 	    		adspots_300x250.each(function() {
 	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
 	    				$(this).addClass('loaded');
-				        p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatrow/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
+				        // p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatrow/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
+				        p($(this), '<script type="text/javascript">kmn_placement = "102df5c44f5f8da4eed0736e427d5df6";</script><script type="text/javascript" src="//cdn.komoona.com/scripts/kmn_sa.js"></script><div class="space"></div>');
 	    			}
 	    		});
 	    	}
@@ -41,7 +42,8 @@ jQuery(document).ready(function($, p) {
 	    		adspots_300x250.each(function() {
 	    			if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
 	    				$(this).addClass('loaded');
-				    	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
+				    	// p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
+				        p($(this), '<script type="text/javascript">kmn_placement = "102df5c44f5f8da4eed0736e427d5df6";</script><script type="text/javascript" src="//cdn.komoona.com/scripts/kmn_sa.js"></script><div class="space"></div>');
 	    			}
 	    		});
 	    	}
