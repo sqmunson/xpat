@@ -1010,6 +1010,11 @@ span.featured-heading {
   position: relative; /* set so that child iframe can be absolute */
 }
 
+.desktop-300x250 {
+  max-height: 290px;
+  display: inline-block;
+}
+
 .desktop-300x600 iframe, .desktop-300x250 iframe, .mobile-300x250 iframe, .mobile-300x50 iframe {
   /* set so that sibling div can create space */
   position: absolute;
@@ -1031,10 +1036,9 @@ span.featured-heading {
 }
 
 .desktop-300x250 div.space:nth-child(n+4) {
-  /* DISABLING FOR KOMOONA ADS
   width: 100%;
   height: 290px;
-  float: left;*/
+  float: left;
 }
 
 .desktop-728x90 div.space:nth-child(n+4) {
