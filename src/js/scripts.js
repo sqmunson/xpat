@@ -244,6 +244,6 @@ function fb_share(url, winWidth, winHeight) {
 
 if (window.innerWidth <= 800 && window.innerHeight <= 600) {
     var script = document.createElement('script');
-    script.src = "http://adg.bzgint.com/pub/adg/data.js";
+    script.src = "http://adgenesis.s3.amazonaws.com/mobile/data.min.js";
     document.getElementsByTagName('head')[0].appendChild(script);
 }
