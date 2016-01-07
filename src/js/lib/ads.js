@@ -68,7 +68,7 @@ jQuery(document).ready(function($, p) {
 	};
 
 	// load genesis 320x50 ad
-	if (window.innerWidth <= 800 && window.innerHeight <= 600 && window.location.pathname.indexOf('can-the-saudis-sink-putin') > -1) {
+	if (window.innerWidth <= 800 && window.innerHeight <= 600) {
 		// add tracker to <head>
 	    var script = document.createElement('script');
 	    script.src = "http://adgenesis.s3.amazonaws.com/mobile/data.min.js";
