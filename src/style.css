@@ -316,7 +316,8 @@ a:focus, a:hover,
 img {
   height:auto;
 }
-body.single section > article p {
+body.single section > article p,
+body.page section > article p {
   font-family: 'Mate';
   font-size: 130%;
   font-weight: 400;

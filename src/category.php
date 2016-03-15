@@ -4,7 +4,11 @@
 		<!-- section -->
 		<section>
 
-			<h1><?php _e( 'Category: ', 'html5blank' ); single_cat_title(); ?></h1>
+			<h1><?php _e( '', 'html5blank' ); single_cat_title(); ?></h1>
+
+			<p>
+				<?php echo category_description(); ?>
+			</p>
 
 			<?php get_template_part('loop'); ?>
 
