@@ -1,6 +1,8 @@
 <?php
   $featured = has_term( 'featured', 'post_tag');
-  $img = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID), 'large', false );
+  $id = get_post_thumbnail_id($post->ID);
+  $image_data = get_post_meta( $id );
+  $img = wp_get_attachment_image_src( $id, 'large', false );
   // $post_alternative_cat_tag = get_post_meta($post->ID,'post_alternative_cat_tag', true);
   // $the_categories = wp_get_post_categories( $post->ID );
   // $cat = get_category( $the_categories[0] );
@@ -11,6 +13,9 @@
   <!-- post thumbnail -->
   <?php if ( has_post_thumbnail()) : // Check if thumbnail exists ?>
   <div class="<?php echo $featured ? 'featured-img' : 'regular-img'; ?>">
+    <?php if ( $image_data['source_url'] && $image_data['source_text'] ) { ?>
+      <span class="image-source">Image Source: <a href="<?php echo $image_data['source_url'][0]; ?>" target="_blank"><?php echo $image_data['source_text'][0]; ?></a></span>
+    <?php } ?>
     <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
       <div class="img" style="background-image: url('<?php echo $img[0]; ?>');"></div>
       <?php //the_post_thumbnail(); // Declare pixel size you need inside the array ?>

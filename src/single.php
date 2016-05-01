@@ -25,7 +25,16 @@
 			<!-- post thumbnail -->
 			<div class="featured-image">
 				<?php if ( has_post_format( 'image' ) && has_post_thumbnail()) : // Check if Thumbnail exists ?>
-						<?php the_post_thumbnail(); // Fullsize image for the single post ?>
+					<?php
+						$id = get_post_thumbnail_id($post->ID);
+  						$image = get_post_meta( $id );
+					?>
+					<?php if ($image['source_url'] && $image['source_text']) { ?>
+						<span class="image-source">
+							Image Source: <a href="<?php echo $image['source_url'][0]; ?>" target="_blank"><?php echo $image['source_text'][0]; ?></a>
+						</span>
+					<?php } ?>
+					<?php the_post_thumbnail(); // Fullsize image for the single post ?>
 				<?php endif; ?>
 			</div>
 			<!-- /post thumbnail -->

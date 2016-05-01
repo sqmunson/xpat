@@ -643,11 +643,93 @@ add_shortcode( 'ad', 'ad_shortcode');
 // stop putting <p> tags around <img> in posts
 function filter_ptags_on_images($content){
    // return preg_replace('/<p>(\s*(<\w*\s*.*>)*\s*(<img .*>)\s*(<\/\w*>)*(\s|\w)*)<\/p>/iU', '\1', $content);
-   return preg_replace('/<p.*>(.*(<img .*>).*)<\/p>/iU', '\1', $content);
+   // return preg_replace('/<p.*>(.*(<img .*>).*)<\/p>/iU', '\1', $content);
+   return preg_replace_callback('/<p.*>(.*(<img .*>).*)<\/p>/iU', 'rewrite_img_html', $content);
 }
 add_filter('the_content', 'filter_ptags_on_images');
+
+// this version adds the same image-source span as featured images,
+// and would be used to have source on top of image
+
+// function rewrite_img_html($images) {
+//     $img = $images[1];
+//     $return = '';
+
+//     // Get the image ID from the unique class added by insert to editor: "wp-image-ID"
+//     if ( preg_match( '/wp-image-([0-9]+)/', $img, $match ) ) {
+//         $data = get_post_meta($match[1]);
+
+//         $return .= '<div class="image-wrap">';
+
+//         if ($data['source_url'] && $data['source_text']) {
+//             $return .= '<span class="image-source">';
+//             $return .= '<a href="' . $data['source_url'][0] . '" target="_blank">';
+//             $return .= 'Image Source: ' . $data['source_text'][0];
+//             $return .= '</a>';
+//             $return .= '</span>';
+//         }
+
+//         $return .= $img;
+//         $return .= '</div>';
+//     } else {
+//         $return .= $img;
+//     }
+
+//     return $return;
+// }
+
+// this version adds the image sourece under the image cuz the size of images might vary,
+function rewrite_img_html($images) {
+    $return = $images[1];
+
+    // Get the image ID from the unique class added by insert to editor: "wp-image-ID"
+    if ( preg_match( '/wp-image-([0-9]+)/', $return, $match ) ) {
+        $data = get_post_meta($match[1]);
+
+        if ($data['source_url'] && $data['source_text']) {
+            $return .= '<span class="image-source">';
+            $return .= 'Image Source: ';
+            $return .= '<a href="' . $data['source_url'][0] . '" target="_blank">';
+            $return .= $data['source_text'][0];
+            $return .= '</a>';
+            $return .= '</span>';
+        }
+    }
+
+    return $return;
+}
 
 function mediabong_shortcode() {
     return '<div><div id="mb_video_syncad" class="floating_banner no_video"></div></div>';
 }
 add_shortcode('mediabong', 'mediabong_shortcode');
+
+// add Image Source fields to image admin screen
+add_filter("attachment_fields_to_edit", "add_image_source_url", 10, 2);
+function add_image_source_url($form_fields, $post) {
+    $form_fields["source_url"] = array(
+        "label" => __("Source URL"),
+        "input" => "text",
+        "value" => get_post_meta($post->ID, "source_url", true),
+                "helps" => __("Add the URL where the original image was posted"),
+    );
+    $form_fields["source_text"] = array(
+        "label" => __("Source Text"),
+        "input" => "text",
+        "value" => get_post_meta($post->ID, "source_text", true),
+                "helps" => __("Add the text to credit the source of the image"),
+    );
+    return $form_fields;
+}
+
+// save the Image Source fields
+add_filter("attachment_fields_to_save", "save_image_source_url", 10 , 2);
+function save_image_source_url($post, $attachment) {
+    if (isset($attachment['source_url'])) {
+        update_post_meta($post['ID'], 'source_url', esc_url($attachment['source_url']));
+    }
+    if (isset($attachment['source_text'])) {
+        update_post_meta($post['ID'], 'source_text', $attachment['source_text']);
+    }
+    return $post;
+}

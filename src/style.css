@@ -665,6 +665,48 @@ body {
 .regular-img {
   width: 300px;
   float: left;
+  position: relative;
+}
+.regular-img .image-source {
+  bottom: 3px;
+}
+.featured-img .image-source {
+  top: 3px;
+}
+.featured-image .image-source {
+  bottom: 3px;
+}
+.image-source {
+  position: absolute;
+  right:6px;
+  color: white;
+  font-size: 70%;
+}
+.image-source a {
+  color: white;
+}
+.image-wrap {
+  position: relative;
+}
+.image-wrap .image-source {
+  bottom: 3px;
+}
+.article-content .image-source {
+    position: relative;
+    color: black;
+    width: 100%;
+    text-align: right;
+    display: block;
+}
+
+.article-content .image-source a {
+  color: #5179bb;
+}
+
+@media (max-width:728px) {
+  .image-source {
+    bottom: 3px;
+  }
 }
 
 .info-container {
@@ -1077,6 +1119,10 @@ article.main-post span.author {
 
 .featured-image img {
   width:100%;
+}
+
+.featured-image {
+  position: relative;
 }
 
 article.main-post img {
