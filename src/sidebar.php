@@ -44,6 +44,17 @@
 
 	<?php // get_template_part('searchform'); ?>
 
+    <div>
+        <!-- <div class="clear ad desktop-300x600">
+            <script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600"></script>
+            <div class="space"></div>
+        </div> -->
+        <?php
+            // dektop 300x600 ad
+            echo do_shortcode('[ad location="ATF" type="desktop" size="300x250"]');
+        ?>
+    </div>
+
     <div class="evergreens">
         <?php
             $evergreen_query = new WP_Query( array(
@@ -81,17 +92,6 @@
                 znscr.parentNode.insertBefore(zergnet, znscr);
             })();
         </script>
-    </div>
-
-    <div>
-        <!-- <div class="clear ad desktop-300x600">
-            <script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600"></script>
-            <div class="space"></div>
-        </div> -->
-        <?php
-            // dektop 300x600 ad
-            echo do_shortcode('[ad type="desktop" size="300x250"]');
-        ?>
     </div>
 
 	<div class="sidebar-widget">
@@ -135,7 +135,7 @@
     <div class="sticky-ad">
         <?php
             // sticky dektop 300x250 ad
-            echo do_shortcode('[ad type="desktop" size="300x250"]');
+            echo do_shortcode('[ad location="BTF" type="desktop" size="300x250"]');
         ?>
     </div>
 

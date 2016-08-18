@@ -190,6 +190,12 @@ function lazy_load_query($loop) {
         $regular_post_args['author'] = $author;
     }
 
+    echo do_shortcode('[ad location="ATF" type="desktop" size="728x90"]');
+
+    if ($page != 0) {
+        echo do_shortcode('[ad location="top" type="mobile" size="300x250"]');
+    }
+
     $the_query = new WP_Query( $featured_post_args ); // The Featured Loop
     if ( $the_query->have_posts() ) {
         $path = dirname(__FILE__) . '/lazy-load-content.php';
@@ -208,8 +214,6 @@ function lazy_load_query($loop) {
             $the_query->the_post();
             include ( $path );
         }
-        echo do_shortcode('[ad type="desktop" size="728x90"]');
-        echo do_shortcode('[ad type="mobile" size="300x250"]');
     }
     wp_reset_postdata(); /* Restore original Post Data */
 

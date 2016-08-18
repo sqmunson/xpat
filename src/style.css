@@ -1014,24 +1014,25 @@ span.featured-heading {
   background-color: #dddddd;
 }*/
 
-.mobile-300x250, .mobile-300x50 {
+.mobile-300x250, .mobile-320x50 {
   position: relative;
   margin: 0 auto;
   width: 300px;
   display: none;
 }
 
-.mobile-300x250 div.space:nth-child(n+4) {
-  float: left;
-  width: 100%;
-  height: 290px;
+.mobile-300x250 {
+  /*float: left;*/
+  /*width: 100%;*/
+  /*height: 290px;*/
   border-bottom: 1px dotted #ccc;
   border-top: 1px dotted #ccc;
   margin-bottom: 20px;
+  padding: 20px 0;
 }
 
-.mobile-300x50 div.space:nth-child(n+4) {
-  float: left;
+.mobile-320x50 {
+  /*float: left;*/
   width: 100%;
   height: 90px;
   border-bottom: 1px dotted #ccc;
@@ -1039,60 +1040,60 @@ span.featured-heading {
   margin-bottom: 20px;
 }
 
-.header-ad .mobile-300x250 div.space:nth-child(n+4),
-.header-ad .mobile-300x50 div.space:nth-child(n+4) {
+.header-ad .mobile-300x250,
+.header-ad .mobile-320x50 {
   border-top: none;
 }
 
-.mobile-300x250 div:not(.space),
-.mobile-300x50 div:not(.space) {
-  position: absolute;
+.mobile-300x250,
+.mobile-320x50 {
+  /*position: absolute;*/
 }
 
 .desktop-728x90, .desktop-300x600, .desktop-300x250 {
-  position: relative; /* set so that child iframe can be absolute */
+  /*position: relative;  set so that child iframe can be absolute */
 }
 
 .desktop-300x250 {
-  max-height: 290px;
-  display: inline-block;
+  /*max-height: 290px;
+  display: inline-block;*/
 }
 
-.desktop-300x600 iframe, .desktop-300x250 iframe, .mobile-300x250 iframe, .mobile-300x50 iframe {
+.desktop-300x600 iframe, .desktop-300x250 iframe, .mobile-300x250 iframe, .mobile-320x50 iframe {
   /* set so that sibling div can create space */
-  position: absolute;
-  top:20px;
+  /*position: absolute;
+  top:20px;*/
 }
 
 .desktop-728x90 iframe {
   /* set so that sibling div can create space */
-  position: absolute;
-  top: 0;
+  /*position: absolute;
+  top: 0;*/
 }
 
-.desktop-300x600 div.space:nth-child(n+4) {
+.desktop-300x600 {
   width: 100%;
   height: 640px;
-  float: left;
+  /*float: left;*/
   border-top: 1px dotted #cccccc;
   padding: 20px;
 }
 
-.desktop-300x250 div.space:nth-child(n+4) {
+.desktop-300x250 {
   width: 100%;
   height: 290px;
-  float: left;
+  /*float: left;*/
 }
 
-.desktop-728x90 div.space:nth-child(n+4) {
+.desktop-728x90 {
   width: 100%;
   height: 110px;
-  float: left;
+  /*float: left;*/
   border-bottom: 1px dotted #cccccc;
   margin-bottom: 20px;
 }
 
-body.single .header-ad .desktop-728x90 div.space:nth-child(n+4) {
+body.single .header-ad .desktop-728x90 {
   margin-bottom: 0;
 }
 
@@ -1351,7 +1352,7 @@ article.main-post img {
   .desktop-728x90, .desktop-300x600, .desktop-300x250 {
     display: none;
   }
-  .mobile-300x250, .mobile-300x50 {
+  .mobile-300x250, .mobile-320x50 {
     display:block;
   }
   article.main-post span.date, article.main-post span.author {

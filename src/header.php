@@ -18,6 +18,14 @@
         <link rel="stylesheet" href="<?php echo get_template_directory_uri() ?>/fonts/stackicons/css/stackicons-min.css">
 
 		<?php wp_head(); ?>
+
+        <!-- DFP Library -->
+        <script async="async" src="https://www.googletagservices.com/tag/js/gpt.js"></script>
+        <script type="text/javascript">
+            var googletag = googletag || {};
+            googletag.cmd = googletag.cmd || [];
+        </script>
+
         <script type="text/javascript">
             // Taboola script part 1.
             // Part 2 is at the end of article in single.php

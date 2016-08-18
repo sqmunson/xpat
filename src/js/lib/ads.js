@@ -1,83 +1,134 @@
 jQuery(document).ready(function($, p) {
 
+	// DFP ad slot variables
+	var slotIds = {
+		network: '/137188010',
+		'728x90': {
+			ATF: '/728x90_Desktop_ATF',
+			BTF: '/728x90_Desktop_1.BTF'
+		},
+		'300x250': {
+			mobile: {
+				top: '/300x250_Mobile_Top',
+				mid: '/300x250_Mobile_Mid',
+				BTF: '/300x250_Mobile_1.BTF'
+			},
+			desktop: {
+				mid: '/300x250_Desktop_Mid',
+				ATF: '/300x250_Desktop_ATF',
+				BTF: '/300x250_Desktop_1.BTF'
+			}
+		},
+		'320x50': {
+			mobile: {
+				top: '/320x50_Mobile_Top'
+			}
+		}
+	};
+
 	window.loadAds = function() {
 		var width = window.innerWidth,
-		adspots_300x50,
-		adspots_300x250,
-		adspots_300x600,
-		adspots_728x90;
-
-		// console.log('LOAD ADS');
+			adspots_320x50,
+			adspots_300x250,
+			adspots_300x600,
+			adspots_728x90;
 
 	    if (width < 728) {
-	    	// smaller than 728px screen
-	    	adspots_300x50 = $('.mobile-300x50');
+	    	// smaller than 728px screen, load mobile ads
+
+	    	adspots_320x50 = $('.mobile-320x50');
 	    	adspots_300x250 = $('.mobile-300x250');
 
-	    	if (adspots_300x50.length) {
-	    		adspots_300x50.each(function() {
-	    			// if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
-	    			// 	$(this).addClass('loaded');
-				    //     p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatrow/ros/300x50?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
-	    			// }
-	    		});
-	    	}
-
 	    	if (adspots_300x250.length) {
+
+	    		// loop through each mobile 300x250 placement on the page
 	    		adspots_300x250.each(function() {
-	    			// if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
-	    			// 	$(this).addClass('loaded');
-				    //     p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatrow/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
-	    			// }
+	    			var id = this.id,
+	    				$this = $(this),
+	    				slot;
+
+	    			// if the placement div is empty and hasn't previously
+	    			// been loaded then we want to load an ad
+	    			if (this.childNodes.length === 0 && !$this.hasClass('loaded')) {
+
+	    				// set the loaded flag so we don't try loading again
+	    				$this.addClass('loaded');
+
+	    				// '/<network ID>/<ad unit ID>', example: '/137188010/300x250_Mobile_Top'
+	    				slot = slotIds.network + ($this.hasClass('top') ? slotIds['300x250'].mobile.top : slotIds['300x250'].mobile.BTF);
+
+	    				// cmd.push adds function to the async queue
+	    				googletag.cmd.push(function() {
+	    					// googletag.pubads() gets access to ad service,
+	    					// display() loads the ad with slot string, size array and div id
+	    					googletag.pubads().display(slot, [300, 250], id);
+	    				});
+	    			}
 	    		});
 	    	}
 	    } else {
-	    	// larger than 728px screen
+	    	// larger than 728px screen, load desktop ads
+
 	    	adspots_300x250 = $('.desktop-300x250');
 	    	adspots_300x600 = $('.desktop-300x600');
 	    	adspots_728x90 = $('.desktop-728x90');
 
 	    	if (adspots_300x250.length) {
-	    		adspots_300x250.each(function() {
-	    			// if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
-	    			// 	$(this).addClass('loaded');
-				    // 	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x250?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
-				    //     // p($(this), '<script type="text/javascript">kmn_placement = "102df5c44f5f8da4eed0736e427d5df6";</script><script type="text/javascript" src="//cdn.komoona.com/scripts/kmn_sa.js"></script><div class="space"></div>');
-	    			// }
-	    		});
-	    	}
 
-	    	if (adspots_300x600.length) {
-	    		adspots_300x600.each(function() {
-	    			// if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
-	    			// 	$(this).addClass('loaded');
-			    	// 	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/300x600?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
-	    			// }
+	    		// loop through each desktop 300x250 placement on the page
+	    		adspots_300x250.each(function() {
+	    			var id = this.id,
+	    				$this = $(this),
+	    				slot;
+
+	    			// if the placement div is empty and hasn't previously
+	    			// been loaded then we want to load an ad
+	    			if (this.childNodes.length === 0 && !$this.hasClass('loaded')) {
+
+	    				// set the loaded flag so we don't try loading again
+	    				$this.addClass('loaded');
+
+	    				// '/<network ID>/<ad unit ID>', example: '/137188010/300x250_Mobile_Top'
+	    				slot = slotIds.network + ($this.hasClass('ATF') ? slotIds['300x250'].desktop.ATF : slotIds['300x250'].desktop.BTF);
+
+	    				// cmd.push adds function to the async queue
+	    				googletag.cmd.push(function() {
+	    					// googletag.pubads() gets access to ad service,
+	    					// display() loads the ad with slot string, size array and div id
+		    				googletag.pubads().display(slot, [300, 250], id);
+	    				});
+	    			}
 	    		});
 	    	}
 
 	    	if (adspots_728x90.length) {
+
+	    		// loop through each desktop 300x250 placement on the page
 	    		adspots_728x90.each(function() {
-	    			// if (this.childNodes.length === 0 && !$(this).hasClass('loaded')) {
-	    			// 	$(this).addClass('loaded');
-				    // 	p($(this), '<script type="text/javascript" src="http://tags.pubgears.com/xpatus/ros/728x90?cb=' + Math.round(Math.random() * 100000) + '"></script><div class="space"></div>');
-	    			// }
+	    			var id = this.id,
+	    				$this = $(this),
+	    				slot;
+
+	    			// if the placement div is empty and hasn't previously
+	    			// been loaded then we want to load an ad
+	    			if (this.childNodes.length === 0 && !$this.hasClass('loaded')) {
+
+	    				// set the loaded flag so we don't try loading again
+	    				$this.addClass('loaded');
+
+	    				// '/<network ID>/<ad unit ID>', example: '/137188010/300x250_Mobile_Top'
+	    				slot = slotIds.network + ($this.hasClass('ATF') ? slotIds['728x90'].ATF : slotIds['728x90'].BTF);
+
+	    				// cmd.push adds function to the async queue
+	    				googletag.cmd.push(function() {
+	    					// googletag.pubads() gets access to ad service,
+	    					// display() loads the ad with slot string, size array and div id
+		    				googletag.pubads().display(slot, [728, 90], id);
+	    				});
+	    			}
 	    		});
 	    	}
 	    }
 	};
-
-	// load genesis 320x50 ad
-	if (window.innerWidth <= 800 && window.innerHeight <= 600) {
-		// add tracker to <head>
-	    // var script = document.createElement('script');
-	    // script.src = "http://adgenesis.s3.amazonaws.com/mobile/data.min.js";
-	    // document.getElementsByTagName('head')[0].appendChild(script);
-
-	    // insert pubgears tag into DOM
-	    // var div = document.createElement('div');
-	    // document.getElementsByTagName('body')[0].appendChild(div);
-     //    p($(div), '<script type="text/javascript" src="http://tags.pubgears.com/xptnt2/ros/320x50?cb=' + Math.round(Math.random() * 100000) + '&domain=' + window.location.hostname + '"></script>');
-	}
 
 }(jQuery, postscribe));

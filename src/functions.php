@@ -634,7 +634,8 @@ function ad_shortcode($atts, $content = null) {
 
     $html = '<div class="clear ad ';
     $html .= $atts['type'] . '-' . $atts['size'];
-    $html .= '" ></div>';
+    $html .= ' ' . $atts['location'];
+    $html .= '" id="' . uniqid('div-') . '"></div>';
 
     return $html;
 }
