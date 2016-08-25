@@ -51,8 +51,17 @@
         </div> -->
         <?php
             // dektop 300x600 ad
-            echo do_shortcode('[ad location="ATF" type="desktop" size="300x250"]');
+            // echo do_shortcode('[ad location="ATF" type="desktop" size="300x250"]');
         ?>
+        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+        <!-- 300x250 -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:300px;height:250px"
+             data-ad-client="ca-pub-9379497832465024"
+             data-ad-slot="3470626991"></ins>
+        <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
     </div>
 
     <div class="evergreens">
